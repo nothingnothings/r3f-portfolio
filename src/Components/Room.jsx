@@ -2,7 +2,6 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { useControls, button } from 'leva';
 import { useGLTF, useAnimations } from '@react-three/drei';
-import { useFrame } from '@react-three/fiber';
 import gsap from 'gsap';
 gsap.config({ nullTargetWarn: false });
 import CustomEase from 'gsap/CustomEase';
@@ -10,7 +9,7 @@ gsap.registerPlugin(CustomEase);
 CustomEase.create('in-out', '0.42,0,0.58,1');
 
 // * COMPONENTS
-import PresControls from './controls/PresControls';
+import PresControls from './Controls/PresControls';
 import LenovoBook from './Notebook/LenovoBook';
 import Screens from './Notebook/Screens/Screens';
 import HingeButtons from './UI/Buttons/HingeButtons';
