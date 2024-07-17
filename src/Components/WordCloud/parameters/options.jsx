@@ -1,0 +1,15 @@
+export const options = {
+    colors: ['#ffffff'],
+    deterministic: false,
+    enableTooltip: false,
+    fontFamily: 'TitilliumWeb',
+    fontSizes: [24, 48],
+    fontStyle: 'normal',
+    fontWeight: 'normal',
+    padding: 1,
+    rotations: 2,
+    rotationAngles: [0, 90],
+    scale: 'linear',
+    spiral: 'rectangular',
+    transitionDuration: 3000,
+  };
