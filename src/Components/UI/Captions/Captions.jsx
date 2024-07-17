@@ -38,7 +38,6 @@ function ExternalLinkCaption({
   };
 
   const pointerOver = () => {
-    console.log('ENTERED HOVER');
     if ((isOpen, isPoweredOn, isFinishedBooting)) {
       textRef2.current.material = new THREE.MeshBasicMaterial({
         color: '#ffffff',
