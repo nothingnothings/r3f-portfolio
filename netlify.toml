@@ -1,0 +1,9 @@
+[build]
+  command = "npm install --force && npm run build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "16" # Ensure you use a compatible Node.js version for your project
+
+[build.processing]
+  skip_processing = true
