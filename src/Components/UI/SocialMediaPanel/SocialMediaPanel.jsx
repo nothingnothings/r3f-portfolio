@@ -157,7 +157,7 @@ export default function SocialMediaPanel({
           {/* CODE */}
           <div className="social-media-link">
             <a
-              href="github.com/nothingnothings/repo-name"
+              href="https://github.com/nothingnothings/r3f-portfolio/"
               target="_blank"
               rel="noopener noreferrer"
             >
