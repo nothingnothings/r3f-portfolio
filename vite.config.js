@@ -1,6 +1,5 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
-import glsl from 'vite-plugin-glsl';
 import { nodePolyfills } from 'vite-plugin-node-polyfills';
 
 export default defineConfig({
@@ -9,7 +8,6 @@ export default defineConfig({
   base: './',
   plugins: [
     react(), // React support
-    glsl(), // Glsl support
     nodePolyfills(), // Fix Crypto warnings
   ],
   server: {
