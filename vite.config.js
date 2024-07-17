@@ -5,7 +5,7 @@ import { nodePolyfills } from 'vite-plugin-node-polyfills';
 export default defineConfig({
   root: 'src/',
   publicDir: '../public/',
-  base: './',
+  base: '/',
   plugins: [
     react(), // React support
     nodePolyfills(), // Fix Crypto warnings
