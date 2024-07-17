@@ -13,7 +13,7 @@ body,
 }
 
 .background {
-  background-image: url('./images/mesh-190.png');
+  background-image: url('/images/mesh-190.png');
 }
 
 canvas {
