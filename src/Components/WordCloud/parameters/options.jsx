@@ -13,3 +13,20 @@ export const options = {
     spiral: 'rectangular',
     transitionDuration: 3000,
   };
+
+
+export const mobileOptions = {
+    colors: ['#ffffff'],
+    deterministic: true,
+    enableTooltip: false,
+    fontFamily: 'TitilliumWeb',
+    fontSizes: [20, 40],
+    fontStyle: 'normal',
+    fontWeight: 'normal',
+    padding: 1,
+    rotations: 1,
+    rotationAngles: [0, 90],
+    scale: 'sqrt',
+    spiral: 'rectangular',
+    transitionDuration: 3000,
+  };

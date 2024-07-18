@@ -8,13 +8,17 @@ import gsap from 'gsap';
 import './fonts.css';
 
 // * PARAMETERS
-import { options } from './parameters/options';
+import { options, mobileOptions } from './parameters/options';
 import { data, mobileData } from './parameters/words';
 
-// * MOBILE COMPATIBILITY
-const isMobile = window.innerWidth < 768; // 768px is the default breakpoint for mobile devices
+const words = data.map((w) => ({ text: w.key, value: w.value }));
 
+const mobileWords = mobileData.map((w) => ({ text: w.key, value: w.value }));
+
+// * MOBILE COMPATIBILITY
 const minSize = [window.innerWidth + 1000, 300];
+
+const mobileMinSize = [window.innerWidth + 1000, 180];
 
 export default function WordCloudComponent({ isOpen, isPoweredOn, isMobile }) {
   // * WORD CLOUD REF
@@ -60,20 +64,20 @@ export default function WordCloudComponent({ isOpen, isPoweredOn, isMobile }) {
     <Html
       transform
       center
-      position-z={-2000}
+      position-z={isMobile ? -2500 : -2000}
       rotation-x={-0.25}
-      position-y={-300}
+      position-y={isMobile ? -500 : -300}
       ref={wordCloudHtmlRef}
-      scale={150}
+      scale={isMobile ? 125 : 150 }
       style={{
         opacity: 0,
       }}
     >
       <div ref={wordCloudRef} style={{ opacity: 0 }}>
         <WordCloud
-          words={isMobile ? mobileData : data}
-          options={options}
-          minSize={minSize}
+          words={isMobile ? mobileWords : words}
+          options={isMobile ? mobileOptions : options}
+          minSize={isMobile ? mobileMinSize : minSize}
         />
       </div>
     </Html>

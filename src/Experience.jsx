@@ -15,7 +15,7 @@ import WordCloudComponent from './Components/WordCloud/WordCloud';
 
 export default function Experience() {
   // const scalingFactor = Math.min(Math.max(window.innerWidth / 1800, 0.6), 1.2);
-  // const isMobile = window.innerWidth < 768; // 768px is the default breakpoint for mobile devices
+  const isMobile = window.innerWidth < 768; // 768px is the default breakpoint for mobile devices
 
   const { camera, viewport } = useThree();
 
@@ -80,6 +80,7 @@ export default function Experience() {
 
   // * WORD CLOUD PROPS
   const wordCloudComponentProps = {
+    isMobile,
     isOpen,
     isPoweredOn,
   };
