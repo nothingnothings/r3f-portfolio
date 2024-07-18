@@ -5,6 +5,7 @@ import gsap from 'gsap';
 import { button, useControls } from 'leva';
 
 function OpenNotebookButton({
+  nodes,
   animationsObject,
   open,
   refName,
@@ -20,17 +21,21 @@ function OpenNotebookButton({
   githubHtmlRef,
 }) {
   useEffect(() => {
-    gsap.to(refName.current.style, {
-      opacity: 1,
-      delay: 2,
-      duration: 1,
-      display: 'block',
-      ease: 'power1.inOut',
-      onComplete: () => {
-        refName.current.style.pointerEvents = 'auto';
-        refName.current.style.cursor = 'pointer';
-      },
-    });
+    setTimeout(() => {
+      if (refName.current) {
+        gsap.to(refName.current.style, {
+          opacity: 1,
+          delay: 2,
+          duration: 1,
+          display: 'block',
+          ease: 'power1.inOut',
+          onComplete: () => {
+            refName.current.style.pointerEvents = 'auto';
+            refName.current.style.cursor = 'pointer';
+          },
+        });
+      }
+    }, 3000);
   }, []);
 
   // * METHOD
@@ -238,6 +243,7 @@ function CloseNotebookButton({
 }
 
 export default function HingeButtons({
+  nodes,
   isNewVisit,
   isOpen,
   isPoweredOn,
@@ -335,6 +341,7 @@ export default function HingeButtons({
   return (
     <>
       <OpenNotebookButton
+        nodes={nodes}
         refName={openButtonRef}
         isOpen={isOpen}
         isPoweredOn={isPoweredOn}

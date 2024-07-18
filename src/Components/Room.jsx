@@ -198,6 +198,7 @@ export default function Room(props) {
   };
 
   const hingeButtonParameters = {
+    nodes,
     showLoadingScreen: props.showLoadingScreen,
     isNewVisit,
     isOpen,
