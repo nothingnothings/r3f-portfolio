@@ -9,18 +9,10 @@ import './fonts.css';
 
 // * PARAMETERS
 import { options } from './parameters/options';
-import { data } from './parameters/words';
+import { data, mobileData } from './parameters/words';
 
 // * MOBILE COMPATIBILITY
 const isMobile = window.innerWidth < 768; // 768px is the default breakpoint for mobile devices
-let wordData;
-
-if (isMobile) {
-  wordData = data.slice(0, 30);
-  wordData.map((w) => ({ text: w.key, value: w.value }));
-} else {
-  wordData = data;
-}
 
 const minSize = [window.innerWidth + 1000, 300];
 
@@ -78,7 +70,11 @@ export default function WordCloudComponent({ isOpen, isPoweredOn, isMobile }) {
       }}
     >
       <div ref={wordCloudRef} style={{ opacity: 0 }}>
-        <WordCloud words={wordData} options={options} minSize={minSize} />
+        <WordCloud
+          words={isMobile ? mobileData : data}
+          options={options}
+          minSize={minSize}
+        />
       </div>
     </Html>
   );
