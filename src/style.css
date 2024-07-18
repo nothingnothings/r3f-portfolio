@@ -113,6 +113,10 @@ canvas {
 }
 
 /* SCREENS */
+.bootScreen{
+  touch-action: pan-y;
+}
+
 .bootScreen img {
   width: 2075px;
   height: 1300px;
@@ -125,6 +129,7 @@ canvas {
   max-height: 1300px;
   border-radius: 20px;
   overflow-y: auto;
+  touch-action: pan-y;
 }
 
 .linkedInScreen img {
@@ -136,6 +141,7 @@ canvas {
 
 .githubHtmlScreen {
   cursor: pointer;
+  touch-action: pan-y;
 }
 
 .githubHtmlScreen iframe {
