@@ -25,7 +25,6 @@ function OpenNotebookButton({
       if (refName.current) {
         gsap.to(refName.current.style, {
           opacity: 1,
-          delay: 2,
           duration: 1,
           display: 'block',
           ease: 'power1.inOut',
@@ -325,16 +324,16 @@ export default function HingeButtons({
         });
       }
     } else {
-      if (openButtonRef.current) {
-        gsap.to(openButtonRef.current.style, {
-          opacity: 1,
-          delay: 2.5,
-          duration: 0.5,
-          onComplete: () => {
-            openButtonRef.current.style.pointerEvents = 'auto';
-          },
-        });
-      }
+      // if (openButtonRef.current) {
+      //   gsap.to(openButtonRef.current.style, {
+      //     opacity: 1,
+      //     delay: 2.5,
+      //     duration: 0.5,
+      //     onComplete: () => {
+      //       openButtonRef.current.style.pointerEvents = 'auto';
+      //     },
+      //   });
+      // }
     }
   }, [isOpen]);
 
