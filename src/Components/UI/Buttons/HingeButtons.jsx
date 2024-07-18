@@ -314,17 +314,6 @@ export default function HingeButtons({
             openButtonRef.current.style.pointerEvents = 'auto';
           },
         });
-      } else {
-        setInterval(() => {
-          gsap.to(openButtonRef.current.style, {
-            opacity: 1,
-            delay: 2.5,
-            duration: 0.5,
-            onComplete: () => {
-              openButtonRef.current.style.pointerEvents = 'auto';
-            },
-          });
-        }, 0.01);
       }
     }
   }, [isOpen]);
