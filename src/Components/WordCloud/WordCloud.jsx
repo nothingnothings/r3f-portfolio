@@ -49,15 +49,17 @@ export default function WordCloudComponent({ isOpen, isPoweredOn, isMobile }) {
   };
 
   const hideWords = () => {
-    gsap.to(wordCloudHtmlRef.current.style, {
-      duration: 2,
-      opacity: 0,
-    });
+    if (wordCloudHtmlRef.current) {
+      gsap.to(wordCloudHtmlRef.current.style, {
+        duration: 2,
+        opacity: 0,
+      });
 
-    gsap.to(wordCloudRef.current.style, {
-      duration: 2,
-      opacity: 0,
-    });
+      gsap.to(wordCloudRef.current.style, {
+        duration: 2,
+        opacity: 0,
+      });
+    }
   };
 
   return (
@@ -68,7 +70,7 @@ export default function WordCloudComponent({ isOpen, isPoweredOn, isMobile }) {
       rotation-x={-0.25}
       position-y={isMobile ? -500 : -300}
       ref={wordCloudHtmlRef}
-      scale={isMobile ? 65 : 175 }
+      scale={isMobile ? 65 : 175}
       style={{
         opacity: 0,
       }}

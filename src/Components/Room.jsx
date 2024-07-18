@@ -24,7 +24,6 @@ import WordCloudComponent from './WordCloud/WordCloud';
 export default function Room(props) {
   // * ZUSTAND STORE
   const {
-    // finishLoading,
     isNewVisit,
     isOpen,
     isPoweredOn,
