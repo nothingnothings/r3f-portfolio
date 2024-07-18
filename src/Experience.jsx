@@ -23,6 +23,8 @@ export default function Experience() {
       navigator.userAgent
     );
 
+  console.log(isMobile, "IS IT MOBILE?");
+
   const { camera, viewport } = useThree();
 
   // * NEW VISIT, OPEN/CLOSE, POWERED ON/OFF and PAGE STATES
@@ -110,7 +112,7 @@ export default function Experience() {
       <Center>
         <group ref={roomGroupRef} visible={false}>
           <Room {...roomProps} />
-          {!isMobile ?? <WordCloudComponent {...wordCloudComponentProps} />}
+           <WordCloudComponent {...wordCloudComponentProps} />
         </group>
       </Center>
       <Captions {...captionsProps} />

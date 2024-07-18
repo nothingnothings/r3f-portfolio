@@ -15,16 +15,20 @@ const words = data.map((w) => ({ text: w.key, value: w.value }));
 
 const minSize = [window.innerWidth + 1000, 300];
 
-export default function WordCloudComponent({ isOpen, isPoweredOn }) {
+export default function WordCloudComponent({ isOpen, isPoweredOn, isMobile }) {
   // * WORD CLOUD REF
   const wordCloudHtmlRef = useRef();
   const wordCloudRef = useRef();
 
   useEffect(() => {
-    if (isOpen && !isPoweredOn) {
-      displayWords();
+    if (isMobile) {
+      return null;
     } else {
-      hideWords();
+      if (isOpen && !isPoweredOn) {
+        displayWords();
+      } else {
+        hideWords();
+      }
     }
   }, [isOpen, isPoweredOn]);
 
@@ -63,7 +67,7 @@ export default function WordCloudComponent({ isOpen, isPoweredOn }) {
       rotation-x={-0.25}
       position-y={-300}
       ref={wordCloudHtmlRef}
-      scale={isMobile ? 65 : 175}
+      scale={150}
       style={{
         opacity: 0,
       }}
