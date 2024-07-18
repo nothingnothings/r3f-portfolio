@@ -21,14 +21,10 @@ export default function WordCloudComponent({ isOpen, isPoweredOn, isMobile }) {
   const wordCloudRef = useRef();
 
   useEffect(() => {
-    if (isMobile) {
-      return null;
+    if (isOpen && !isPoweredOn) {
+      displayWords();
     } else {
-      if (isOpen && !isPoweredOn) {
-        displayWords();
-      } else {
-        hideWords();
-      }
+      hideWords();
     }
   }, [isOpen, isPoweredOn]);
 

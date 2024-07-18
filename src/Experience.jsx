@@ -1,5 +1,5 @@
 // * LIBRARY IMPORTS
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useThree } from '@react-three/fiber';
 import { Center, useBounds } from '@react-three/drei';
 import { useControls } from 'leva';
@@ -23,7 +23,13 @@ export default function Experience() {
       navigator.userAgent
     );
 
-  console.log(isMobile, "IS IT MOBILE?");
+  const [shouldRenderWordCloud, setShouldRenderWordCloud] = useState(true);
+
+  useEffect(() => {
+    if (isMobile) {
+      setShouldRenderWordCloud(false);
+    }
+  }, [isMobile]);
 
   const { camera, viewport } = useThree();
 
@@ -112,7 +118,9 @@ export default function Experience() {
       <Center>
         <group ref={roomGroupRef} visible={false}>
           <Room {...roomProps} />
-           {/* <WordCloudComponent {...wordCloudComponentProps} /> */}
+          {shouldRenderWordCloud && (
+            <WordCloudComponent {...wordCloudComponentProps} />
+          )}
         </group>
       </Center>
       <Captions {...captionsProps} />
