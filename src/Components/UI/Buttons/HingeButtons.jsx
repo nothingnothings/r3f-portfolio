@@ -19,6 +19,20 @@ function OpenNotebookButton({
   linkedInHtmlRef,
   githubHtmlRef,
 }) {
+  useEffect(() => {
+    gsap.to(refName.current.style, {
+      opacity: 1,
+      delay: 2,
+      duration: 1,
+      display: 'block',
+      ease: 'power1.inOut',
+      onComplete: () => {
+        refName.current.style.pointerEvents = 'auto';
+        refName.current.style.cursor = 'pointer';
+      },
+    });
+  }, []);
+
   // * METHOD
   const openNotebook = () => {
     const oldAction = animationsObject.actions['Close'];

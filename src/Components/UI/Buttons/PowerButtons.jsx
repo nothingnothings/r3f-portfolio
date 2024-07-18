@@ -190,7 +190,6 @@ function PowerOffButton({
       duration: 3,
       onStart: () => {
         closeButtonRef.current.style.pointerEvents = 'none';
-        console.log(closeButtonRef.current.style.pointerEvents);
       },
       onComplete: () => {
         closeButtonRef.current.style.pointerEvents = 'all';
