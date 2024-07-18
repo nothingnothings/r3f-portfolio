@@ -247,12 +247,6 @@ export default function Room(props) {
     height: 1.65,
   };
 
-  const wordCloudParameters = {
-    isMobile: props.isMobile,
-    isOpen,
-    isPoweredOn,
-  };
-
   const socialMediaPanelParameters = {
     githubHtmlRef: githubHtmlRef,
     linkedInHtmlRef: linkedInHtmlRef,
@@ -275,7 +269,6 @@ export default function Room(props) {
           <RectLight {...rectLightParameters} />
         </group>
       </PresControls>
-      <WordCloudComponent {...wordCloudParameters} />
       <SocialMediaPanel {...socialMediaPanelParameters} />
     </>
   );
