@@ -30,17 +30,19 @@ export default function WordCloudComponent({ isOpen, isPoweredOn, isMobile }) {
 
   // * WORD CLOUD METHODS
   const displayWords = () => {
-    gsap.to(wordCloudHtmlRef.current.style, {
-      duration: 3,
-      delay: 1.2,
-      opacity: 1,
-    });
+    if (wordCloudHtmlRef.current && wordCloudRef.current) {
+      gsap.to(wordCloudHtmlRef.current.style, {
+        duration: 3,
+        delay: 1.2,
+        opacity: 1,
+      });
 
-    gsap.to(wordCloudRef.current.style, {
-      duration: 3,
-      delay: 1.2,
-      opacity: 1,
-    });
+      gsap.to(wordCloudRef.current.style, {
+        duration: 3,
+        delay: 1.2,
+        opacity: 1,
+      });
+    }
   };
 
   const hideWords = () => {
