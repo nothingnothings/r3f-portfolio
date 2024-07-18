@@ -68,7 +68,7 @@ export default function WordCloudComponent({ isOpen, isPoweredOn, isMobile }) {
       rotation-x={-0.25}
       position-y={isMobile ? -500 : -300}
       ref={wordCloudHtmlRef}
-      scale={isMobile ? 125 : 150 }
+      scale={isMobile ? 65 : 175 }
       style={{
         opacity: 0,
       }}

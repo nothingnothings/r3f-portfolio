@@ -104,7 +104,7 @@ export default function Experience() {
       <Center>
         <group ref={roomGroupRef} visible={false}>
           <Room {...roomProps} />
-          <WordCloudComponent {...wordCloudComponentProps} />
+          {/* <WordCloudComponent {...wordCloudComponentProps} /> */}
         </group>
       </Center>
       <Captions {...captionsProps} />
