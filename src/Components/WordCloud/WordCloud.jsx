@@ -44,15 +44,17 @@ export default function WordCloudComponent({ isOpen, isPoweredOn, isMobile }) {
   };
 
   const hideWords = () => {
-    gsap.to(wordCloudHtmlRef.current.style, {
-      duration: 2,
-      opacity: 0,
-    });
+    if (wordCloudHtmlRef.current && wordCloudRef.current) {
+      gsap.to(wordCloudHtmlRef.current.style, {
+        duration: 2,
+        opacity: 0,
+      });
 
-    gsap.to(wordCloudRef.current.style, {
-      duration: 2,
-      opacity: 0,
-    });
+      gsap.to(wordCloudRef.current.style, {
+        duration: 2,
+        opacity: 0,
+      });
+    }
   };
 
   return isMobile ? null : (
