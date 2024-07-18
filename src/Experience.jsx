@@ -28,11 +28,7 @@ export default function Experience() {
       navigator.userAgent
     );
 
-  useEffect(() => {
-    if (isMobile) {
-      setShouldRenderWordCloud(false);
-    }
-  }, [isMobile]);
+
 
   const { camera, viewport } = useThree();
 
