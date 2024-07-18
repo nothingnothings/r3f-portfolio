@@ -59,7 +59,7 @@ export default function WordCloudComponent({ isOpen, isPoweredOn, isMobile }) {
     });
   };
 
-  return (
+  return isMobile ? null : (
     <Html
       transform
       center
