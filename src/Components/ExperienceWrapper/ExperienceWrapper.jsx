@@ -24,7 +24,7 @@ const ExperienceWrapper = () => {
         }}
       >
         <Bounds interpolateFunc={interpolateFunc}>
-          {/* <Experience /> */}
+          <Experience />
         </Bounds>
         <ContactShadows
           opacity={0.35}
