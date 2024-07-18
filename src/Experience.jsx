@@ -1,5 +1,5 @@
 // * LIBRARY IMPORTS
-import { useEffect, useRef, useState } from 'react';
+import { lazy, useEffect, useRef, useState } from 'react';
 import { useThree } from '@react-three/fiber';
 import { Center, useBounds } from '@react-three/drei';
 import { useControls } from 'leva';
@@ -11,7 +11,12 @@ import useNotebook from './store/useNotebook';
 import Env from './Components/Environment/Env';
 import Room from './Components/Room';
 import Captions from './Components/UI/Captions/Captions';
-import WordCloudComponent from './Components/WordCloud/WordCloud';
+// import WordCloudComponent from './Components/WordCloud/WordCloud';
+
+// Lazy import WordCloudComponent to avoid loading it on mobile devices:
+const WordCloudComponent = lazy(() =>
+  import('./Components/WordCloud/WordCloud')
+);
 
 export default function Experience() {
   // const scalingFactor = Math.min(Math.max(window.innerWidth / 1800, 0.6), 1.2);
@@ -22,8 +27,6 @@ export default function Experience() {
     /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
       navigator.userAgent
     );
-
-  const [shouldRenderWordCloud, setShouldRenderWordCloud] = useState(true);
 
   useEffect(() => {
     if (isMobile) {
@@ -118,9 +121,8 @@ export default function Experience() {
       <Center>
         <group ref={roomGroupRef} visible={false}>
           <Room {...roomProps} />
-          {shouldRenderWordCloud && (
-            <WordCloudComponent {...wordCloudComponentProps} />
-          )}
+
+          <WordCloudComponent {...wordCloudComponentProps} />
         </group>
       </Center>
       <Captions {...captionsProps} />
