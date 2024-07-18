@@ -37,6 +37,7 @@ function OpenNotebookButton({
     }, 3000);
   }, []);
 
+  
   // * METHOD
   const openNotebook = () => {
     const oldAction = animationsObject.actions['Close'];
