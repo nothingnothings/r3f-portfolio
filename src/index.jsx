@@ -25,9 +25,9 @@ const App = () => {
   return (
     <>
       <FaviconHelper isPoweredOn={isPoweredOn} />
-      <Suspense delay={2000} fallback={<LoadingScreen />}>
+      {/* <Suspense delay={2000} fallback={<LoadingScreen />}> */}
         <ExperienceWrapper />
-      </Suspense>
+      {/* </Suspense> */}
     </>
   );
 };
