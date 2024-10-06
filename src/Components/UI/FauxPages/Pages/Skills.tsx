@@ -2,7 +2,7 @@ import React from 'react';
 
 import PageWrapper from '../PageWrapper';
 
-export default function Skills() {
+export default function Skills({ onPagePrev }) {
   return (
     <PageWrapper sectionId="skills-section" title="Skills">
       <div
@@ -581,6 +581,7 @@ export default function Skills() {
           </p>
         </div>
       </div>
+      <button onClick={onPagePrev}>Go to Page 2</button>
     </PageWrapper>
   );
 }

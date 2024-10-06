@@ -3,11 +3,24 @@ import { subscribeWithSelector } from 'zustand/middleware';
 
 export default create(
   subscribeWithSelector((set) => ({
+    experiencePage: 0,
     isNewVisit: true,
     isOpen: false,
     loadedPage: 'linkedIn',
     isPoweredOn: false,
     isFinishedBooting: false,
+    nextPage: () =>
+      set((state) => {
+        return {
+          experiencePage: state.experiencePage + 1,
+        };
+      }),
+    prevPage: (page) =>
+      set((state) => {
+        return {
+          experiencePage: state.experiencePage - 1,
+        };
+      }),
     changeVisitStatus: () => {
       set((state) => {
         if (state.isNewVisit) {

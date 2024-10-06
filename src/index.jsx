@@ -1,6 +1,9 @@
 // * STYLES
 import './style.css';
 
+// * BOOTSTRAP
+import 'bootstrap/dist/css/bootstrap.min.css'; // Import Bootstrap CSS
+
 // * REACT LIBRARIES
 import ReactDOM from 'react-dom/client';
 import { lazy, Suspense } from 'react-lazy-no-flicker';

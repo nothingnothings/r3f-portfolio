@@ -1,7 +1,7 @@
 // * LIBRARY IMPORTS
 import { lazy, useEffect, useRef } from 'react';
 import { useThree } from '@react-three/fiber';
-import { Center, useBounds } from '@react-three/drei';
+import { Center, useBounds, Html } from '@react-three/drei';
 import { useControls } from 'leva';
 
 // * ZUSTAND STORE
@@ -11,13 +11,14 @@ import useNotebook from './store/useNotebook';
 import Env from './Components/Environment/Env';
 import Room from './Components/Room';
 import Captions from './Components/UI/Captions/Captions';
+import PageButton from './Components/UI/Buttons/PageButton';
 
 // Lazy import WordCloudComponent to avoid loading it on mobile devices:
 const WordCloudComponent = lazy(() =>
   import('./Components/WordCloud/WordCloud')
 );
 
-export default function Experience() {
+export default function Experience({ onPageNext }) {
   // const scalingFactor = Math.min(Math.max(window.innerWidth / 1800, 0.6), 1.2);
 
   // * Check if the user is accessing the page on a mobile device
@@ -27,6 +28,9 @@ export default function Experience() {
     );
 
   const { camera, viewport } = useThree();
+
+  // * PAGE STATES (EXPERIENCE PAGE)
+  const nextPage = useNotebook((state) => state.nextPage);
 
   // * NEW VISIT, OPEN/CLOSE, POWERED ON/OFF and PAGE STATES
   const isNewVisit = useNotebook((state) => state.isNewVisit); // * Initially True
@@ -117,6 +121,9 @@ export default function Experience() {
         </group>
       </Center>
       <Captions {...captionsProps} />
+      <Html center>
+        <PageButton isNextPageButton={true} onPageNext={nextPage} />
+      </Html>
     </>
   );
 }
