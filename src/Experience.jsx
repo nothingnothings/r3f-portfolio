@@ -12,13 +12,15 @@ import Env from './Components/Environment/Env';
 import Room from './Components/Room';
 import Captions from './Components/UI/Captions/Captions';
 import PageButton from './Components/UI/Buttons/PageButton';
+import AboutMe from './Components/UI/FauxPages/Pages/AboutMe';
 
 // Lazy import WordCloudComponent to avoid loading it on mobile devices:
 const WordCloudComponent = lazy(() =>
   import('./Components/WordCloud/WordCloud')
 );
 
-export default function Experience({ onPageNext }) {
+export default function Experience({ isElementsVisible }) {
+  console.log(isElementsVisible);
   // const scalingFactor = Math.min(Math.max(window.innerWidth / 1800, 0.6), 1.2);
 
   // * Check if the user is accessing the page on a mobile device
@@ -79,6 +81,7 @@ export default function Experience({ onPageNext }) {
     powerOff,
     finishBooting,
     switchPage,
+    isElementsVisible
   };
 
   // * CAPTIONS PROPS
@@ -117,13 +120,12 @@ export default function Experience({ onPageNext }) {
       <Center>
         <group ref={roomGroupRef} visible={false}>
           <Room {...roomProps} />
-          <WordCloudComponent {...wordCloudComponentProps} />
+          {isElementsVisible && (
+            <WordCloudComponent {...wordCloudComponentProps} />
+          )}
         </group>
       </Center>
-      <Captions {...captionsProps} />
-      <Html center>
-        <PageButton isNextPageButton={true} onPageNext={nextPage} />
-      </Html>
+      {isElementsVisible && <Captions {...captionsProps} />}
     </>
   );
 }

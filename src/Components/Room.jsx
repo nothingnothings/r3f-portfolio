@@ -35,6 +35,7 @@ export default function Room(props) {
     powerOff,
     finishBooting,
     switchPage,
+    isElementsVisible
   } = props;
 
   // * GLTF MODEL
@@ -264,13 +265,15 @@ export default function Room(props) {
       <PresControls>
         <group {...groupParameters}>
           <LenovoBook {...lenovoBookParameters} />
-          <Screens {...screenParameters} />
-          <HingeButtons {...hingeButtonParameters} />
-          <PowerButtons {...powerButtonParameters} />
-          <RectLight {...rectLightParameters} />
+          {isElementsVisible && <HingeButtons {...hingeButtonParameters} />}
+          {isElementsVisible && <PowerButtons {...powerButtonParameters} />}
+          {isElementsVisible && <RectLight {...rectLightParameters} />}
+          {isElementsVisible && <Screens {...screenParameters} />}
         </group>
       </PresControls>
-      <SocialMediaPanel {...socialMediaPanelParameters} />
+      {isElementsVisible && (
+        <SocialMediaPanel {...socialMediaPanelParameters} />
+      )}
     </>
   );
 }

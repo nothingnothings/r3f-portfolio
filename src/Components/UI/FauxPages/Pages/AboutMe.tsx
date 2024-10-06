@@ -6,11 +6,11 @@ import PageButton from '../../Buttons/PageButton';
 export default function AboutMe({ onPagePrev, onPageNext }) {
   return (
     <PageWrapper sectionId="about-section" title="about">
-      <PageButton
+      {/* <PageButton
         isNextPageButton={false}
         onPageNext={onPageNext}
         onPagePrev={onPagePrev}
-      />
+      /> */}
       <div className="mt-5 row d-flex justify-content-between align-items-center">
         <div className="d-none d-md-block col-md-5">
           <img
@@ -39,11 +39,11 @@ export default function AboutMe({ onPagePrev, onPageNext }) {
           </p>
         </div>
       </div>
-      <PageButton
+      {/* <PageButton
         isNextPageButton={true}
         onPageNext={onPageNext}
         onPagePrev={onPagePrev}
-      />
+      /> */}
     </PageWrapper>
   );
 }
