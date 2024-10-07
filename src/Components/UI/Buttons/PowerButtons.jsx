@@ -1,6 +1,8 @@
 import { Html } from '@react-three/drei';
 import gsap from 'gsap';
 import { button, useControls } from 'leva';
+import { faPowerOff } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 function PowerOnButton({
   bootAudio,
@@ -151,7 +153,7 @@ function PowerOnButton({
       ref={powerOnButtonRef}
     >
       <div onClick={powerNotebookOn}>
-        <i
+        {/* <i
           style={{
             fontSize: '0.5rem',
             color: 'white',
@@ -160,7 +162,19 @@ function PowerOnButton({
             padding: '0.01rem',
           }}
           className="fa fa-power-off pulsing"
-        ></i>
+        ></i> */}
+
+        <FontAwesomeIcon
+          icon={faPowerOff}
+          style={{
+            fontSize: '0.5rem',
+            color: 'white',
+            borderRadius: '50%',
+            background: 'black',
+            padding: '0.01rem',
+          }}
+          className="pulsing"
+        />
       </div>
     </Html>
   );
@@ -259,7 +273,7 @@ function PowerOffButton({
       ref={powerOffButtonRef}
     >
       <div onClick={powerNotebookOff}>
-        <i
+        {/* <i
           style={{
             fontSize: '0.5rem',
             color: '#ffff01',
@@ -269,7 +283,18 @@ function PowerOffButton({
             padding: '0.01rem',
           }}
           className="fa fa-power-off"
-        ></i>
+        ></i> */}
+        <FontAwesomeIcon
+          icon={faPowerOff}
+          style={{
+            fontSize: '0.5rem',
+            color: '#ffff01',
+            borderRadius: '50%',
+            cursor: 'pointer',
+            background: 'black',
+            padding: '0.01rem',
+          }}
+        />
       </div>
     </Html>
   );

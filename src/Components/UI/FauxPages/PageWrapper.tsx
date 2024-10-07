@@ -2,9 +2,11 @@ import React from 'react';
 
 import { Html } from '@react-three/drei';
 
-export default function PageWrapper({ children, sectionId, title }) {
+export default function PageWrapper({ children, sectionId, title, position }) {
   return (
-    <Html>
+    <Html 
+    position={position}
+    >
       <section id={sectionId} className="work-section">
         <div className="text-center row">
           <div className="m-4 col work-title" style={{ opacity: 0 }}>

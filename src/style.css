@@ -94,6 +94,7 @@ canvas {
   }
 }
 
+
 @keyframes caretBlink {
   0% {
     opacity: 0;

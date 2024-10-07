@@ -4,7 +4,7 @@ import PageWrapper from '../PageWrapper';
 
 export default function Skills({ onPagePrev }) {
   return (
-    <PageWrapper sectionId="skills-section" title="Skills">
+    <PageWrapper position={[6, 0, 0]} sectionId="skills-section" title="Skills">
       <div
         className="row d-flex justify-content-between align-items-center"
         style={{ marginTop: '4rem' }}
@@ -220,7 +220,7 @@ export default function Skills({ onPagePrev }) {
               <div className="skill_name">
                 <svg
                   className="svg-inline--fa fa-node-js fa-w-14 mr-3 fa-2x"
-                  style={{ color: '#3c873a;' }}
+                  style={{ color: '#3c873a' }}
                   aria-hidden="true"
                   data-prefix="fab"
                   data-icon="node-js"
@@ -251,13 +251,13 @@ export default function Skills({ onPagePrev }) {
                   className="mr-3"
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 598.88 1333.33"
-                  shape-rendering="geometricPrecision"
-                  text-rendering="geometricPrecision"
-                  image-rendering="optimizeQuality"
-                  fill-rule="evenodd"
-                  clip-rule="evenodd"
+                  shapeRendering="geometricPrecision"
+                  textRendering="geometricPrecision"
+                  imageRendering="optimizeQuality"
+                  fillRule="evenodd"
+                  clipRule="evenodd"
                 >
-                  <g fill-rule="nonzero">
+                  <g fillRule="nonzero">
                     <path d="" fill="#599636"></path>
                     <path d="" fill="#6cac48"></path>
                     <path d="" fill="#c2bfbf"></path>
@@ -324,17 +324,17 @@ export default function Skills({ onPagePrev }) {
                     d="M434.8 137.65l-149.36-68.1c-16.19-7.4-42.69-7.4-58.88 0L77.3 137.65c-17.6 8-17.6 21.09 0 29.09l148 67.5c16.89 7.7 44.69 7.7 61.58 0l148-67.5c17.52-8 17.52-21.1-.08-29.09zM160 308.52l-82.7 37.11c-17.6 8-17.6 21.1 0 29.1l148 67.5c16.89 7.69 44.69 7.69 61.58 0l148-67.5c17.6-8 17.6-21.1 0-29.1l-79.94-38.47"
                     fill="none"
                     stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="32"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="32"
                   ></path>
                   <path
                     d="M160 204.48l-82.8 37.16c-17.6 8-17.6 21.1 0 29.1l148 67.49c16.89 7.7 44.69 7.7 61.58 0l148-67.49c17.7-8 17.7-21.1.1-29.1L352 204.48"
                     fill="none"
                     stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="32"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="32"
                   ></path>
                 </svg>
                 MEAN Stack
@@ -363,17 +363,17 @@ export default function Skills({ onPagePrev }) {
                     d="M434.8 137.65l-149.36-68.1c-16.19-7.4-42.69-7.4-58.88 0L77.3 137.65c-17.6 8-17.6 21.09 0 29.09l148 67.5c16.89 7.7 44.69 7.7 61.58 0l148-67.5c17.52-8 17.52-21.1-.08-29.09zM160 308.52l-82.7 37.11c-17.6 8-17.6 21.1 0 29.1l148 67.5c16.89 7.69 44.69 7.69 61.58 0l148-67.5c17.6-8 17.6-21.1 0-29.1l-79.94-38.47"
                     fill="none"
                     stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="32"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="32"
                   ></path>
                   <path
                     d="M160 204.48l-82.8 37.16c-17.6 8-17.6 21.1 0 29.1l148 67.49c16.89 7.7 44.69 7.7 61.58 0l148-67.49c17.7-8 17.7-21.1.1-29.1L352 204.48"
                     fill="none"
                     stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="32"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="32"
                   ></path>
                 </svg>
                 MERN Stack
@@ -400,7 +400,7 @@ export default function Skills({ onPagePrev }) {
                   x="0px"
                   y="0px"
                   viewBox="0 0 400 400"
-                  enable-background="new 0 0 400 400"
+                  enableBackground="new 0 0 400 400"
                 >
                   <g>
                     <g>
@@ -551,7 +551,7 @@ export default function Skills({ onPagePrev }) {
               <div className="skill_name">
                 <svg
                   className="svg-inline--fa fa-docker fa-w-20 mr-3 fa-2x"
-                  style={{ color: '#0db7ed;' }}
+                  style={{ color: '#0db7ed' }}
                   aria-hidden="true"
                   data-prefix="fab"
                   data-icon="docker"

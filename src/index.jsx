@@ -1,5 +1,8 @@
 // * STYLES
 import './style.css';
+import '../public/fontawesome/css/fontawesome.css';
+import '../public/fontawesome/css/brands.css';
+import '../public/fontawesome/css/solid.css';
 
 // * BOOTSTRAP
 import 'bootstrap/dist/css/bootstrap.min.css'; // Import Bootstrap CSS

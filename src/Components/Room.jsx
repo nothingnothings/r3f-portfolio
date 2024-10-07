@@ -19,7 +19,6 @@ import SocialMediaPanel from './UI/SocialMediaPanel/SocialMediaPanel';
 
 // * UTILS
 import { screenLightOn, screenLightOff } from '../Utils/utils';
-import WordCloudComponent from './WordCloud/WordCloud';
 
 export default function Room(props) {
   // * ZUSTAND STORE
@@ -35,7 +34,6 @@ export default function Room(props) {
     powerOff,
     finishBooting,
     switchPage,
-    isElementsVisible
   } = props;
 
   // * GLTF MODEL
@@ -265,15 +263,13 @@ export default function Room(props) {
       <PresControls>
         <group {...groupParameters}>
           <LenovoBook {...lenovoBookParameters} />
-          {isElementsVisible && <HingeButtons {...hingeButtonParameters} />}
-          {isElementsVisible && <PowerButtons {...powerButtonParameters} />}
-          {isElementsVisible && <RectLight {...rectLightParameters} />}
-          {isElementsVisible && <Screens {...screenParameters} />}
+          <HingeButtons {...hingeButtonParameters} />
+          && <PowerButtons {...powerButtonParameters} />
+          <RectLight {...rectLightParameters} />
+          <Screens {...screenParameters} />
         </group>
       </PresControls>
-      {isElementsVisible && (
-        <SocialMediaPanel {...socialMediaPanelParameters} />
-      )}
+      <SocialMediaPanel {...socialMediaPanelParameters} />
     </>
   );
 }

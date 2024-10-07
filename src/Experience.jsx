@@ -13,14 +13,15 @@ import Room from './Components/Room';
 import Captions from './Components/UI/Captions/Captions';
 import PageButton from './Components/UI/Buttons/PageButton';
 import AboutMe from './Components/UI/FauxPages/Pages/AboutMe';
+import Skills from './Components/UI/FauxPages/Pages/Skills';
+import PageMoveButton from './Components/UI/Buttons/PageMoveButton';
 
 // Lazy import WordCloudComponent to avoid loading it on mobile devices:
 const WordCloudComponent = lazy(() =>
   import('./Components/WordCloud/WordCloud')
 );
 
-export default function Experience({ isElementsVisible }) {
-  console.log(isElementsVisible);
+export default function Experience() {
   // const scalingFactor = Math.min(Math.max(window.innerWidth / 1800, 0.6), 1.2);
 
   // * Check if the user is accessing the page on a mobile device
@@ -81,7 +82,6 @@ export default function Experience({ isElementsVisible }) {
     powerOff,
     finishBooting,
     switchPage,
-    isElementsVisible
   };
 
   // * CAPTIONS PROPS
@@ -120,12 +120,18 @@ export default function Experience({ isElementsVisible }) {
       <Center>
         <group ref={roomGroupRef} visible={false}>
           <Room {...roomProps} />
-          {isElementsVisible && (
-            <WordCloudComponent {...wordCloudComponentProps} />
-          )}
+          <WordCloudComponent {...wordCloudComponentProps} />
         </group>
+        <AboutMe />
+        <Skills />
+        <PageMoveButton
+          label="About Me"
+          buttonPosition={[-0.08, -1, 0]}
+          targetPosition={[0, -3.5, 5]}
+        />
+        {/* <PageMoveButton label="Skills" targetPosition={[6, 1, 5]} /> */}
       </Center>
-      {isElementsVisible && <Captions {...captionsProps} />}
+      <Captions {...captionsProps} />
     </>
   );
 }
