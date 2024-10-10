@@ -1,14 +1,7 @@
 // * LIBRARIES
-import { useState, useRef, useEffect } from 'react';
-import { Canvas, useFrame } from '@react-three/fiber';
-import {
-  Bounds,
-  ContactShadows,
-  OrbitControls,
-  Scroll,
-  ScrollControls,
-  useScroll,
-} from '@react-three/drei';
+import { useEffect } from 'react';
+import { Canvas } from '@react-three/fiber';
+import { Bounds, ContactShadows } from '@react-three/drei';
 import { Leva } from 'leva';
 
 // * COMPONENTS
@@ -16,6 +9,7 @@ import Experience from '../../Experience';
 import AboutMe from '../UI/FauxPages/Pages/AboutMe';
 import { interpolateFunc, backgroundSetter } from '../../Utils/utils';
 import useNotebook from '../../store/useNotebook';
+import PageButtonsHub from '../UI/Buttons/PageButtonsHub';
 
 const ExperienceWrapper = () => {
   const isFinishedBooting = useNotebook((state) => state.isFinishedBooting);
@@ -34,19 +28,18 @@ const ExperienceWrapper = () => {
           far: 100,
         }}
       >
-        {/* <OrbitControls> */}
-          <Bounds interpolateFunc={interpolateFunc}>
-            <Experience />
-          </Bounds>
-          <ContactShadows
-            opacity={0.35}
-            scale={7.5}
-            blur={1.2}
-            color={'#001933'}
-            position={[0, -0.9, 0]}
-          />
-        {/* </OrbitControls> */}
+        <Bounds interpolateFunc={interpolateFunc}>
+          <Experience />
+        </Bounds>
+        <ContactShadows
+          opacity={0.35}
+          scale={7.5}
+          blur={1.2}
+          color={'#001933'}
+          position={[0, -0.9, 0]}
+        />
       </Canvas>
+      {isFinishedBooting && <PageButtonsHub />}
     </>
   );
 };

@@ -15,6 +15,7 @@ import { lazy, Suspense } from 'react-lazy-no-flicker';
 import useNotebook from './store/useNotebook.jsx';
 import LoadingScreen from './Components/LoadingScreen/LoadingScreen.jsx';
 import FaviconHelper from './Components/FaviconHelper/FaviconHelper.jsx';
+import PageButtonsHub from './Components/UI/Buttons/PageButtonsHub.jsx';
 
 const ExperienceWrapper = lazy(
   () => {
@@ -33,6 +34,7 @@ const App = () => {
       <FaviconHelper isPoweredOn={isPoweredOn} />
       <Suspense delay={2000} fallback={<LoadingScreen />}>
         <ExperienceWrapper />
+        {/* <PageButtonsHub /> */}
       </Suspense>
     </>
   );

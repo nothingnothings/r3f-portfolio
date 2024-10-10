@@ -14,11 +14,10 @@ import Captions from './Components/UI/Captions/Captions';
 import PageButton from './Components/UI/Buttons/PageButton';
 import AboutMe from './Components/UI/FauxPages/Pages/AboutMe';
 import Skills from './Components/UI/FauxPages/Pages/Skills';
-import PageMoveButton from './Components/UI/Buttons/PageMoveButton';
 
 // Lazy import WordCloudComponent to avoid loading it on mobile devices:
-const WordCloudComponent = lazy(() =>
-  import('./Components/WordCloud/WordCloud')
+const WordCloudComponent = lazy(
+  () => import('./Components/WordCloud/WordCloud')
 );
 
 export default function Experience() {
@@ -124,12 +123,6 @@ export default function Experience() {
         </group>
         <AboutMe />
         <Skills />
-        <PageMoveButton
-          label="About Me"
-          buttonPosition={[-0.08, -1, 0]}
-          targetPosition={[0, -3.5, 5]}
-        />
-        {/* <PageMoveButton label="Skills" targetPosition={[6, 1, 5]} /> */}
       </Center>
       <Captions {...captionsProps} />
     </>
