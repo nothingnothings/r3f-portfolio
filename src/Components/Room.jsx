@@ -115,6 +115,7 @@ export default function Room(props) {
   });
 
   const float = (pageType) => {
+    console.log('ENTERED SUPER');
     close();
     githubHtmlRef.current.style.display = 'none';
     linkedInHtmlRef.current.style.display = 'none';
@@ -122,13 +123,30 @@ export default function Room(props) {
     powerOnButtonRef.current.style.display = 'none';
     powerOffButtonRef.current.style.display = 'none';
     screenLightOff(lightRef);
-
-    switchRoomPage(pageType);
+    console.log(pageType, roomPage);
 
     setTimeout(() => {
       openButtonRef.current.style.display = 'none';
       setStartFloat(true);
+      switchRoomPage(pageType);
     }, 2000);
+
+    setTimeout(() => {
+      // destroy the notebook mesh:
+      lenovoBookRef.current.traverse((child) => {
+        if (child.isMesh) {
+          child.geometry.dispose();
+          child.material.dispose();
+        }
+      });
+
+      // destroy the notebook group:
+      lenovoBookRef.current.parent.remove(lenovoBookRef.current);
+
+      // destroy the notebook ref:
+      lenovoBookRef.current.parent.remove(lenovoBookRef.current);
+      lenovoBookRef.current.parent.remove(lenovoBookRef.current);
+    }, 4000);
   };
 
   // * ANIMATION HANDLING:
@@ -146,7 +164,9 @@ export default function Room(props) {
   }, [animationsObject.actions]);
 
   useEffect(() => {
-    if (roomPage !== 'notebook') {
+    console.log(isOpen, 'IS OPEN');
+    if ((roomPage === 'about' || roomPage === 'skills')) {
+      console.log('ENTERED');
       float(roomPage);
     }
   }, [roomPage]);
