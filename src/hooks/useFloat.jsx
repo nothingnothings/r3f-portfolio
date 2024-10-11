@@ -77,17 +77,17 @@ export const useFloat = (
             mesh.rotation.x = THREE.MathUtils.lerp(
               mesh.originalRotation.x,
               mesh.targetRotation.x,
-              time
+              time * 1.5
             );
             mesh.rotation.y = THREE.MathUtils.lerp(
               mesh.originalRotation.y,
               mesh.targetRotation.y,
-              time
+              time * 1.5
             );
             mesh.rotation.z = THREE.MathUtils.lerp(
               mesh.originalRotation.z,
               mesh.targetRotation.z,
-              time
+              time * 1.5
             );
           }
         }

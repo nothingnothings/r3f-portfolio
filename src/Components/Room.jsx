@@ -21,6 +21,7 @@ import SocialMediaPanel from './UI/SocialMediaPanel/SocialMediaPanel';
 import { screenLightOn, screenLightOff } from '../Utils/utils';
 import { useFloat } from '../hooks/useFloat';
 import useNotebook from '../store/useNotebook';
+import { LoopOnce } from 'three';
 
 export default function Room(props) {
   // * ZUSTAND STORE
@@ -80,7 +81,7 @@ export default function Room(props) {
 
   const groupRef = useRef();
 
-  useFloat(groupRef, { distance: 4.5, enableRotation: true }, startFloat);
+  useFloat(groupRef, { distance: 7, enableRotation: true }, startFloat);
 
   const {} = useControls('Float', {
     float: button(() => float()),
@@ -122,13 +123,22 @@ export default function Room(props) {
     powerOnButtonRef.current.style.display = 'none';
     powerOffButtonRef.current.style.display = 'none';
     screenLightOff(lightRef);
-    console.log(pageType, roomPage);
+
+    // play close notebook animation:
+    const oldAction = animationsObject.actions['Open'];
+    oldAction.stop();
+
+    const action = animationsObject.actions['Close'];
+    animationsObject.actions['Close'].setLoop(LoopOnce, 1);
+    action.clampWhenFinished = true;
+    action.setDuration(1.8);
+    action.play();
 
     setTimeout(() => {
       openButtonRef.current.style.display = 'none';
       setStartFloat(true);
       switchRoomPage(pageType);
-    }, 2000);
+    }, 3000);
 
     setTimeout(() => {
       // destroy the notebook mesh:
