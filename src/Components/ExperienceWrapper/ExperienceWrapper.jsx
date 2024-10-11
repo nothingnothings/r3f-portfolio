@@ -14,6 +14,7 @@ const ExperienceWrapper = () => {
   const isFinishedBooting = useNotebook((state) => state.isFinishedBooting);
   const isPoweredOn = useNotebook((state) => state.isPoweredOn);
   const roomPage = useNotebook((state) => state.roomPage);
+  const switchRoomPage = useNotebook((state) => state.switchRoomPage);
 
   useEffect(() => {
     backgroundSetter();
@@ -42,7 +43,7 @@ const ExperienceWrapper = () => {
       </Canvas>
 
       {isPoweredOn && isFinishedBooting && (
-        <PageButtonsHub activePage={roomPage} />
+        <PageButtonsHub activePage={roomPage} switchPage={switchRoomPage} />
       )}
     </>
   );

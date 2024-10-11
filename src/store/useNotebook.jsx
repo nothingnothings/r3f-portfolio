@@ -9,24 +9,7 @@ export default create(
     loadedPage: 'linkedIn',
     isPoweredOn: false,
     isFinishedBooting: false,
-    aboutPage: () => {
-      set((state) => {
-        if (state.roomPage === 'about') {
-          return {};
-        } else {
-          return { roomPage: 'about' };
-        }
-      });
-    },
-    skillsPage: () => {
-      set((state) => {
-        if (state.roomPage === 'skills') {
-          return {};
-        } else {
-          return { roomPage: 'skills' };
-        }
-      });
-    },
+    switchRoomPage: (page) => set({ roomPage: page }),
     changeVisitStatus: () => {
       set((state) => {
         if (state.isNewVisit) {

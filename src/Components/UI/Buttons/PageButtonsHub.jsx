@@ -1,4 +1,5 @@
-export default function PageButtonsHub({ activePage }) {
+export default function PageButtonsHub({ activePage, switchPage }) {
+
   return (
     <div className="d-flex justify-content-end pageButtonsHubWrapper interface titilium-web">
       <div className="controls">
@@ -8,7 +9,7 @@ export default function PageButtonsHub({ activePage }) {
               'btn px-lg-4 py-lg-3 btn--ghost' +
               (activePage === 'notebook' ? ' active-button' : '')
             }
-            onClick={() => useNotebook.getState().switchPage('home')}
+            onClick={() => switchPage('notebook')}
           >
             Home
           </button>
@@ -17,6 +18,7 @@ export default function PageButtonsHub({ activePage }) {
               'btn px-lg-4 py-lg-3 btn--ghost' +
               (activePage === 'about' ? ' active-button' : '')
             }
+            onClick={() => switchPage('about')}
           >
             About
           </button>
@@ -25,6 +27,7 @@ export default function PageButtonsHub({ activePage }) {
               'btn px-lg-4 py-lg-3 btn--ghost' +
               (activePage === 'skills' ? ' active-button' : '')
             }
+            onClick={() => switchPage('skills')}
           >
             Skills
           </button>
