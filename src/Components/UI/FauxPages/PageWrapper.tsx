@@ -4,9 +4,7 @@ import { Html } from '@react-three/drei';
 
 export default function PageWrapper({ children, sectionId, title, position }) {
   return (
-    <Html 
-    position={position}
-    >
+    <Html position={position}>
       <section id={sectionId} className="work-section">
         <div className="text-center row">
           <div className="m-4 col work-title" style={{ opacity: 0 }}>

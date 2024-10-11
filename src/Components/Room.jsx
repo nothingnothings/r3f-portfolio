@@ -298,7 +298,7 @@ export default function Room(props) {
             <LenovoBook {...lenovoBookParameters} />
           </group>
           <HingeButtons {...hingeButtonParameters} />
-          && <PowerButtons {...powerButtonParameters} />
+          <PowerButtons {...powerButtonParameters} />
           <RectLight {...rectLightParameters} />
           <Screens {...screenParameters} />
         </group>

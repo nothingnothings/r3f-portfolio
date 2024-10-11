@@ -6,7 +6,6 @@ import { Leva } from 'leva';
 
 // * COMPONENTS
 import Experience from '../../Experience';
-import AboutMe from '../UI/FauxPages/Pages/AboutMe';
 import { interpolateFunc, backgroundSetter } from '../../Utils/utils';
 import useNotebook from '../../store/useNotebook';
 import PageButtonsHub from '../UI/Buttons/PageButtonsHub';
@@ -39,6 +38,7 @@ const ExperienceWrapper = () => {
           position={[0, -0.9, 0]}
         />
       </Canvas>
+
       {isFinishedBooting && <PageButtonsHub />}
     </>
   );

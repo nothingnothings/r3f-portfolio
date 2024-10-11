@@ -126,7 +126,6 @@ export default function SocialMediaPanel({
         className="social-media-panel-container"
       >
         <div className="social-media-panel">
-          {/* LINKEDIN */}
           <div
             ref={linkedInLinkRef}
             className={
@@ -137,10 +136,8 @@ export default function SocialMediaPanel({
               switchPages('linkedIn');
             }}
           >
-            {/* <i className="fa fa-linkedin" /> */}
             <FontAwesomeIcon icon={faLinkedin} />
           </div>
-          {/* GITHUB */}
           <div
             ref={githubLinkRef}
             className={
@@ -151,24 +148,19 @@ export default function SocialMediaPanel({
               switchPages('github');
             }}
           >
-            {/* <i className="fa fa-github" /> */}
             <FontAwesomeIcon icon={faGithub} />
           </div>
-          {/* EMAIL */}
           <div className="social-media-link">
             <a href="mailto:arthur.panazolo@acad.pucrs.br">
-              {/* <i className="fa fa-envelope" /> */}
               <FontAwesomeIcon icon={faEnvelope} />
             </a>
           </div>
-          {/* CODE */}
           <div className="social-media-link">
             <a
               href="https://github.com/nothingnothings/r3f-portfolio/"
               target="_blank"
               rel="noopener noreferrer"
             >
-              {/* <i className="fa fa-code" /> */}
               <FontAwesomeIcon icon={faCode} />
             </a>
           </div>

@@ -153,17 +153,6 @@ function PowerOnButton({
       ref={powerOnButtonRef}
     >
       <div onClick={powerNotebookOn}>
-        {/* <i
-          style={{
-            fontSize: '0.5rem',
-            color: 'white',
-            borderRadius: '50%',
-            background: 'black',
-            padding: '0.01rem',
-          }}
-          className="fa fa-power-off pulsing"
-        ></i> */}
-
         <FontAwesomeIcon
           icon={faPowerOff}
           style={{
@@ -273,17 +262,6 @@ function PowerOffButton({
       ref={powerOffButtonRef}
     >
       <div onClick={powerNotebookOff}>
-        {/* <i
-          style={{
-            fontSize: '0.5rem',
-            color: '#ffff01',
-            borderRadius: '50%',
-            cursor: 'pointer',
-            background: 'black',
-            padding: '0.01rem',
-          }}
-          className="fa fa-power-off"
-        ></i> */}
         <FontAwesomeIcon
           icon={faPowerOff}
           style={{

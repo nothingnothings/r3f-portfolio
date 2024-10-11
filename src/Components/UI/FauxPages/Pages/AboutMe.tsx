@@ -1,24 +1,15 @@
 import React from 'react';
 
 import PageWrapper from '../PageWrapper';
-import PageButton from '../../Buttons/PageButton';
 
 export default function AboutMe() {
   return (
     <PageWrapper position={[3, 0, 0]} sectionId="about-section" title="about">
       <div className="mt-5 row d-flex justify-content-between align-items-center">
         <div className="d-none d-md-block col-md-5">
-          <img
-            src=""
-            alt="image"
-            className="img-fluid about-img"
-            // style={{ opacity: 0 }}
-          />
+          <img src="" alt="image" className="img-fluid about-img" />
         </div>
-        <div
-          className="px-4 mx-auto text-justify px-md-5 col-md-7 about-description"
-          //   style={{ opacity: 0 }}
-        >
+        <div className="px-4 mx-auto text-justify px-md-5 col-md-7 about-description">
           <p className="lead">
             My name is <mark>Arthur Panazolo.</mark> I am a Full Stack Web
             Developer passionate about creating fast, responsive, and visually
