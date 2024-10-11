@@ -20,7 +20,7 @@ const ExperienceWrapper = () => {
 
   return (
     <>
-      <Leva collapsed hidden />
+      <Leva collapsed />
       <Canvas
         camera={{
           fov: 60,

@@ -19,6 +19,8 @@ import SocialMediaPanel from './UI/SocialMediaPanel/SocialMediaPanel';
 
 // * UTILS
 import { screenLightOn, screenLightOff } from '../Utils/utils';
+import { useExplode } from '../hooks/useExplode';
+import useNotebook from '../store/useNotebook';
 
 export default function Room(props) {
   // * ZUSTAND STORE
@@ -65,8 +67,21 @@ export default function Room(props) {
   const powerOnButtonRef = useRef();
   const powerOffButtonRef = useRef();
 
+  const aboutPage = useNotebook((state) => state.aboutPage);
+  const skillsPage = useNotebook((state) => state.skillsPage);
+
+  const [startExplode, setStartExplode] = useState(false);
+
   // * UI REFS:
   const UIRef = useRef();
+
+  const groupRef = useRef();
+
+  useExplode(groupRef, { distance: 3, enableRotation: true }, startExplode);
+
+  const {} = useControls('Explode', {
+    explode: button(() => explode()),
+  });
 
   // * MODEL ANIMATIONS
   const animationsObject = useAnimations(animations, group);
@@ -90,11 +105,28 @@ export default function Room(props) {
   });
 
   useControls('Actions', {
-    OpenLid: button(() => openNotebook()),
-    CloseLid: button(() => closeNotebook()),
-    PowerOn: button(() => powerNotebookOn()),
-    PowerOff: button(() => powerNotebookOff()),
+    OpenLid: button(() => open()),
+    CloseLid: button(() => close()),
+    PowerOn: button(() => powerOn()),
+    PowerOff: button(() => powerOff()),
   });
+
+  const explode = () => {
+    close();
+    githubHtmlRef.current.style.display = 'none';
+    linkedInHtmlRef.current.style.display = 'none';
+    closeButtonRef.current.style.display = 'none';
+    powerOnButtonRef.current.style.display = 'none';
+    powerOffButtonRef.current.style.display = 'none';
+    // linuxBootScreenHtmlRef.current.style.display = 'none';
+    screenLightOff(lightRef);
+    aboutPage();
+
+    setTimeout(() => {
+      openButtonRef.current.style.display = 'none';
+      setStartExplode(true);
+    }, 3000);
+  };
 
   // * ANIMATION HANDLING:
   useEffect(() => {
@@ -262,7 +294,9 @@ export default function Room(props) {
     <>
       <PresControls>
         <group {...groupParameters}>
-          <LenovoBook {...lenovoBookParameters} />
+          <group ref={groupRef}>
+            <LenovoBook {...lenovoBookParameters} />
+          </group>
           <HingeButtons {...hingeButtonParameters} />
           && <PowerButtons {...powerButtonParameters} />
           <RectLight {...rectLightParameters} />

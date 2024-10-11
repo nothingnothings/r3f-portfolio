@@ -3,24 +3,30 @@ import { subscribeWithSelector } from 'zustand/middleware';
 
 export default create(
   subscribeWithSelector((set) => ({
-    experiencePage: 0,
+    roomPage: 'notebook',
     isNewVisit: true,
     isOpen: false,
     loadedPage: 'linkedIn',
     isPoweredOn: false,
     isFinishedBooting: false,
-    nextPage: () =>
+    aboutPage: () => {
       set((state) => {
-        return {
-          experiencePage: state.experiencePage + 1,
-        };
-      }),
-    prevPage: (page) =>
+        if (state.roomPage === 'about') {
+          return {};
+        } else {
+          return { roomPage: 'about' };
+        }
+      });
+    },
+    skillsPage: () => {
       set((state) => {
-        return {
-          experiencePage: state.experiencePage - 1,
-        };
-      }),
+        if (state.roomPage === 'skills') {
+          return {};
+        } else {
+          return { roomPage: 'skills' };
+        }
+      });
+    },
     changeVisitStatus: () => {
       set((state) => {
         if (state.isNewVisit) {

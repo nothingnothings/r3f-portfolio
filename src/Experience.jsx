@@ -31,8 +31,9 @@ export default function Experience() {
 
   const { camera, viewport } = useThree();
 
+  const { roomPage } = useNotebook((state) => state);
+
   // * PAGE STATES (EXPERIENCE PAGE)
-  const nextPage = useNotebook((state) => state.nextPage);
 
   // * NEW VISIT, OPEN/CLOSE, POWERED ON/OFF and PAGE STATES
   const isNewVisit = useNotebook((state) => state.isNewVisit); // * Initially True
@@ -124,7 +125,7 @@ export default function Experience() {
         <AboutMe />
         <Skills />
       </Center>
-      <Captions {...captionsProps} />
+      {roomPage === 'notebook' && <Captions {...captionsProps} />}
     </>
   );
 }

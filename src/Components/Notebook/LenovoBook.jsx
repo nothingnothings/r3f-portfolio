@@ -1,6 +1,12 @@
-import { meshBounds } from "@react-three/drei";
+import { meshBounds } from '@react-three/drei';
+
+import { useExplode } from '../../hooks/useExplode';
+import { useRef } from 'react';
 
 export default function LenovoBook({ nodes, materials, refName }) {
+  const groupRef = useRef();
+  const secondRef = useRef();
+
   return (
     <mesh
       name="LenovoBook"
@@ -13,6 +19,7 @@ export default function LenovoBook({ nodes, materials, refName }) {
     >
       <group
         name="Top"
+        ref={secondRef}
         position={[0.007, -0.472, -10.412]}
         rotation={[1.358, 0, 0]}
         scale={5.796}
