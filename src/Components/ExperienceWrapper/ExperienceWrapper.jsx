@@ -12,6 +12,7 @@ import PageButtonsHub from '../UI/Buttons/PageButtonsHub';
 
 const ExperienceWrapper = () => {
   const isFinishedBooting = useNotebook((state) => state.isFinishedBooting);
+  const isPoweredOn = useNotebook((state) => state.isPoweredOn);
 
   useEffect(() => {
     backgroundSetter();
@@ -39,7 +40,7 @@ const ExperienceWrapper = () => {
         />
       </Canvas>
 
-      {isFinishedBooting && <PageButtonsHub />}
+      {isPoweredOn && isFinishedBooting && <PageButtonsHub />}
     </>
   );
 };
