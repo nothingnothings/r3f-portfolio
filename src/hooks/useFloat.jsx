@@ -4,7 +4,7 @@ import { useEffect } from 'react';
 
 import * as THREE from 'three';
 
-export const useExplode = (
+export const useFloat = (
   group,
   { distance = 3, enableRotation = true },
   startExplode

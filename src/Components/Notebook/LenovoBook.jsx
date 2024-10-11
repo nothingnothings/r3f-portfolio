@@ -1,6 +1,6 @@
 import { meshBounds } from '@react-three/drei';
 
-import { useExplode } from '../../hooks/useExplode';
+import { useExplode } from '../../hooks/useFloat';
 import { useRef } from 'react';
 
 export default function LenovoBook({ nodes, materials, refName }) {

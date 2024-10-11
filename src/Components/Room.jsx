@@ -19,7 +19,7 @@ import SocialMediaPanel from './UI/SocialMediaPanel/SocialMediaPanel';
 
 // * UTILS
 import { screenLightOn, screenLightOff } from '../Utils/utils';
-import { useExplode } from '../hooks/useExplode';
+import { useFloat } from '../hooks/useFloat';
 import useNotebook from '../store/useNotebook';
 
 export default function Room(props) {
@@ -67,6 +67,7 @@ export default function Room(props) {
   const powerOnButtonRef = useRef();
   const powerOffButtonRef = useRef();
 
+  // * ROOM PAGE SWITCH METHODS
   const aboutPage = useNotebook((state) => state.aboutPage);
   const skillsPage = useNotebook((state) => state.skillsPage);
 
@@ -77,10 +78,10 @@ export default function Room(props) {
 
   const groupRef = useRef();
 
-  useExplode(groupRef, { distance: 3, enableRotation: true }, startExplode);
+  useFloat(groupRef, { distance: 3, enableRotation: true }, startExplode);
 
-  const {} = useControls('Explode', {
-    explode: button(() => explode()),
+  const {} = useControls('Float', {
+    float: button(() => float()),
   });
 
   // * MODEL ANIMATIONS
@@ -118,7 +119,6 @@ export default function Room(props) {
     closeButtonRef.current.style.display = 'none';
     powerOnButtonRef.current.style.display = 'none';
     powerOffButtonRef.current.style.display = 'none';
-    // linuxBootScreenHtmlRef.current.style.display = 'none';
     screenLightOff(lightRef);
     aboutPage();
 
