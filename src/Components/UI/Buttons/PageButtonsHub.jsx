@@ -1,16 +1,33 @@
-import { useEffect, useRef } from 'react';
-import { Billboard, Html, Text } from '@react-three/drei';
-
-export default function PageButtonsHub({}) {
-  const hubRef = useRef();
-
+export default function PageButtonsHub({ activePage }) {
   return (
     <div className="d-flex justify-content-end pageButtonsHubWrapper interface titilium-web">
       <div className="controls">
         <div className="section d-flex flex-column">
-          <button className="btn px-4 py-3 btn--ghost">Home</button>
-          <button className="btn px-4 py-3 btn--ghost">About</button>
-          <button className="btn px-4 py-3 btn--ghost">Skills</button>
+          <button
+            className={
+              'btn px-lg-4 py-lg-3 btn--ghost' +
+              (activePage === 'notebook' ? ' active-button' : '')
+            }
+            onClick={() => useNotebook.getState().switchPage('home')}
+          >
+            Home
+          </button>
+          <button
+            className={
+              'btn px-lg-4 py-lg-3 btn--ghost' +
+              (activePage === 'about' ? ' active-button' : '')
+            }
+          >
+            About
+          </button>
+          <button
+            className={
+              'btn px-lg-4 py-lg-3 btn--ghost' +
+              (activePage === 'skills' ? ' active-button' : '')
+            }
+          >
+            Skills
+          </button>
         </div>
       </div>
     </div>

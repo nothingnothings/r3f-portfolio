@@ -288,8 +288,7 @@ canvas {
   color: inherit;
 }
 
-/* PageButtonsHub */
-
+/* PAGEBUTTONSHUB */
 .interface {
   position: fixed;
   top: 0;
@@ -297,7 +296,7 @@ canvas {
 }
 
 .pageButtonsHubWrapper {
-  top: 25%;
+  top: 20%;
 }
 
 .controls {
@@ -343,12 +342,8 @@ canvas {
   text-align: center;
   white-space: nowrap;
   cursor: pointer;
-  font-size: 1.6rem !important;
-  transition: all 0.1s ease; /* Added transition explicitly */
-}
-
-.btn:hover {
-  box-shadow: 0 0 0 1rem rgba(0, 25, 51, 0.5);
+  font-size: 2rem !important;
+  transition: all 0.3s ease-in !important;
 }
 
 .btn:focus {
@@ -357,14 +352,15 @@ canvas {
 
 .btn--ghost {
   background-color: transparent !important;
-  border: 1px solid #ffffff !important;
-  color: #ffffff !important;
-  border-radius: 40px;
+  border: 2px solid rgba(0, 25, 51) !important;
+  color: rgba(0, 25, 51) !important;
+  border-radius: 100%;
+  transition: all 0.2s ease-in;
 }
 
 .btn--ghost:hover {
   background-color: transparent !important;
-  border: 1px solid #ffffff !important;
+  border: 2px solid #ffffff !important;
   color: #ffffff !important;
 }
 
@@ -395,7 +391,6 @@ canvas {
 }
 
 .btn-group {
-  /* display: inline-block; */
   vertical-align: middle;
   list-style: none;
   padding: 0;
@@ -419,4 +414,10 @@ canvas {
 .btn-group__item:last-child .btn {
   border-radius: 0 30px 30px 0;
   border-right: 0;
+}
+
+.active-button {
+  border: 2px solid #ffffff !important;
+  color: #ffffff !important;
+  pointer-events: none;
 }
