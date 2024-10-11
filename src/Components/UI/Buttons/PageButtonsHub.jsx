@@ -1,5 +1,4 @@
 export default function PageButtonsHub({ activePage, switchPage }) {
-
   return (
     <div className="d-flex justify-content-end pageButtonsHubWrapper interface titilium-web">
       <div className="controls">
@@ -9,7 +8,7 @@ export default function PageButtonsHub({ activePage, switchPage }) {
               'btn px-lg-4 py-lg-3 btn--ghost' +
               (activePage === 'notebook' ? ' active-button' : '')
             }
-            onClick={() => switchPage('notebook')}
+            onClick={() => window.location.reload()}
           >
             Home
           </button>

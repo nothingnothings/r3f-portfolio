@@ -115,7 +115,6 @@ export default function Room(props) {
   });
 
   const float = (pageType) => {
-    console.log('ENTERED SUPER');
     close();
     githubHtmlRef.current.style.display = 'none';
     linkedInHtmlRef.current.style.display = 'none';
@@ -142,10 +141,6 @@ export default function Room(props) {
 
       // destroy the notebook group:
       lenovoBookRef.current.parent.remove(lenovoBookRef.current);
-
-      // destroy the notebook ref:
-      lenovoBookRef.current.parent.remove(lenovoBookRef.current);
-      lenovoBookRef.current.parent.remove(lenovoBookRef.current);
     }, 4000);
   };
 
@@ -164,9 +159,7 @@ export default function Room(props) {
   }, [animationsObject.actions]);
 
   useEffect(() => {
-    console.log(isOpen, 'IS OPEN');
-    if ((roomPage === 'about' || roomPage === 'skills')) {
-      console.log('ENTERED');
+    if (roomPage === 'about' || roomPage === 'skills') {
       float(roomPage);
     }
   }, [roomPage]);
