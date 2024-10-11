@@ -71,14 +71,14 @@ export default function Room(props) {
   const aboutPage = useNotebook((state) => state.aboutPage);
   const skillsPage = useNotebook((state) => state.skillsPage);
 
-  const [startExplode, setStartExplode] = useState(false);
+  const [startFloat, setStartFloat] = useState(false);
 
   // * UI REFS:
   const UIRef = useRef();
 
   const groupRef = useRef();
 
-  useFloat(groupRef, { distance: 3, enableRotation: true }, startExplode);
+  useFloat(groupRef, { distance: 3, enableRotation: true }, startFloat);
 
   const {} = useControls('Float', {
     float: button(() => float()),
@@ -112,7 +112,7 @@ export default function Room(props) {
     PowerOff: button(() => powerOff()),
   });
 
-  const explode = () => {
+  const float = () => {
     close();
     githubHtmlRef.current.style.display = 'none';
     linkedInHtmlRef.current.style.display = 'none';
@@ -124,7 +124,7 @@ export default function Room(props) {
 
     setTimeout(() => {
       openButtonRef.current.style.display = 'none';
-      setStartExplode(true);
+      setStartFloat(true);
     }, 3000);
   };
 
