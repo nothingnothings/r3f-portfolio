@@ -67,9 +67,11 @@ export default function Room(props) {
   const powerOnButtonRef = useRef();
   const powerOffButtonRef = useRef();
 
+  // * ROOM PAGE STATE:
+  const roomPage = useNotebook((state) => state.roomPage);
+
   // * ROOM PAGE SWITCH METHODS
-  const aboutPage = useNotebook((state) => state.aboutPage);
-  const skillsPage = useNotebook((state) => state.skillsPage);
+  const switchRoomPage = useNotebook((state) => state.switchRoomPage);
 
   const [startFloat, setStartFloat] = useState(false);
 
@@ -112,7 +114,7 @@ export default function Room(props) {
     PowerOff: button(() => powerOff()),
   });
 
-  const float = () => {
+  const float = (pageType) => {
     close();
     githubHtmlRef.current.style.display = 'none';
     linkedInHtmlRef.current.style.display = 'none';
@@ -120,12 +122,13 @@ export default function Room(props) {
     powerOnButtonRef.current.style.display = 'none';
     powerOffButtonRef.current.style.display = 'none';
     screenLightOff(lightRef);
-    aboutPage();
+
+    switchRoomPage(pageType);
 
     setTimeout(() => {
       openButtonRef.current.style.display = 'none';
       setStartFloat(true);
-    }, 3000);
+    }, 2000);
   };
 
   // * ANIMATION HANDLING:
@@ -141,6 +144,12 @@ export default function Room(props) {
     action.play();
     action.halt();
   }, [animationsObject.actions]);
+
+  useEffect(() => {
+    if (roomPage !== 'notebook') {
+      float(roomPage);
+    }
+  }, [roomPage]);
 
   // * LENOVOBOOK METHODS:
   const turnComputerFansOn = () => {
