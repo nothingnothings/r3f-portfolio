@@ -2,7 +2,7 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { LoopOnce } from 'three';
 import { useControls, button } from 'leva';
-import { useGLTF, useAnimations } from '@react-three/drei';
+import { useGLTF, useAnimations, Center, useBounds } from '@react-three/drei';
 import gsap from 'gsap';
 gsap.config({ nullTargetWarn: false });
 import CustomEase from 'gsap/CustomEase';
@@ -24,6 +24,7 @@ import Skills from './UI/FauxPages/Pages/Skills';
 import { screenLightOn, screenLightOff } from '../Utils/utils';
 import { useFloat } from '../hooks/useFloat';
 import useNotebook from '../store/useNotebook';
+import { useThree } from '@react-three/fiber';
 
 export default function Room(props) {
   // * ZUSTAND STORE
@@ -75,6 +76,11 @@ export default function Room(props) {
 
   // * ROOM PAGE SWITCH METHODS
   const switchRoomPage = useNotebook((state) => state.switchRoomPage);
+
+  // * BOUNDS REF
+  const bounds = useBounds();
+
+  const camera = useThree((state) => state.camera);
 
   const [startFloat, setStartFloat] = useState(false);
 
@@ -143,7 +149,7 @@ export default function Room(props) {
       setStartFloat(true);
       switchRoomPage(pageType);
       console.log(roomPage, 'THE ROOM PAGE');
-    }, 3000);
+    }, 2100);
 
     setTimeout(() => {
       // destroy the notebook mesh:
@@ -158,6 +164,7 @@ export default function Room(props) {
       if (lenovoBookRef.current.parent) {
         lenovoBookRef.current.parent.remove(lenovoBookRef.current);
       }
+      // bounds.refresh(camera).clip().fit();
     }, 4000);
   };
 
@@ -343,16 +350,23 @@ export default function Room(props) {
     <>
       <PresControls>
         <group {...groupParameters}>
+          {/* {roomPage === 'notebook' && ( */}
           <group ref={groupRef}>
             <LenovoBook {...lenovoBookParameters} />
           </group>
+          {/* )} */}
+
           <HingeButtons {...hingeButtonParameters} />
           <PowerButtons {...powerButtonParameters} />
           <RectLight {...rectLightParameters} />
           <Screens {...screenParameters} />
         </group>
-        <AboutMe {...aboutPageParameters} />
-        <Skills {...skillsPageParameters} />
+        <Center>
+          <AboutMe {...aboutPageParameters} />
+        </Center>
+        <Center>
+          <Skills {...skillsPageParameters} />
+        </Center>
       </PresControls>
       <SocialMediaPanel {...socialMediaPanelParameters} />
     </>

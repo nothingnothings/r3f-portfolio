@@ -41,7 +41,11 @@ export default function Skills({ visible, UIRef }) {
   };
 
   return (
-    <Html visible={visible} ref={UIRef} style={{ opacity: 0 }}>
+    <Html 
+    visible={visible} 
+    ref={UIRef} 
+    prepend 
+    style={{ opacity: 0 }}>
       <div
         className="row d-flex justify-content-between align-items-center"
         style={{ marginTop: '4rem' }}

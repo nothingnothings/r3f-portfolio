@@ -1,9 +1,16 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import gsap from 'gsap';
 import { Html } from '@react-three/drei';
 
 export default function AboutMe({ visible, UIRef }) {
+  const [htmlElement, setHtmlElement] = useState<HTMLDivElement | null>(null);
+  useEffect(() => {
+    if (htmlElement && htmlElement.parentElement) {
+      htmlElement.parentElement.style.pointerEvents = 'none';
+    }
+  }, [htmlElement]);
+
   useEffect(() => {
     if (visible) {
       showPanel();
@@ -13,54 +20,84 @@ export default function AboutMe({ visible, UIRef }) {
   }, [visible]);
 
   const showPanel = () => {
-    gsap.to(UIRef.current, {
+    gsap.to(htmlElement, {
       opacity: 1,
-      delay: 2.5,
+      delay: 3.5,
       duration: 1.5,
       onStart: () => {
-        UIRef.current.style.display = 'block';
+        htmlElement!.style.display = 'block';
       },
       onComplete: () => {
-        UIRef.current.style.pointerEvents = 'all';
+        htmlElement!.style.pointerEvents = 'all';
       },
     });
   };
 
   const hidePanel = () => {
     if (UIRef.current) {
-      gsap.to(UIRef.current, {
+      gsap.to(htmlElement, {
         opacity: 0,
         duration: 1.5,
         onStart: () => {
-          UIRef.current.style.pointerEvents = 'none';
+          htmlElement!.style.pointerEvents = 'none';
         },
         onComplete: () => {
-          UIRef.current.style.display = 'none';
+          htmlElement!.style.display = 'none';
         },
       });
     }
   };
 
   return (
-    <Html visible={visible} ref={UIRef} style={{ opacity: 0 }}>
-      <div className="mt-5 row d-flex justify-content-between align-items-center">
-        <div className="d-none d-md-block col-md-5">
-          <img src="" alt="image" className="img-fluid about-img" />
+    <Html
+      visible={visible}
+      ref={setHtmlElement}
+      style={{ opacity: 0, pointerEvents: 'none' }}
+      prepend
+      transform
+      position={[0, 1.8, 0]}
+      rotation={[-Math.PI * 0.08, 0, 0]}
+      scale={[0.2, 0.2, 0.2]}
+    >
+      <div className="clients mt-5 pt-5">
+        <div className="text-center partners-clients-header text-uppercase text-white pt-5 mt-5">
+          About Me
         </div>
-        <div className="px-4 mx-auto text-justify px-md-5 col-md-7 about-description">
-          <p className="lead">
-            My name is <mark>Arthur Panazolo.</mark> I am a Full Stack Web
-            Developer passionate about creating fast, responsive, and visually
-            appealing web applications.
-          </p>
-          <p className="lead">
-            With years of experience in the industry, I enjoy the challenge of
-            turning ideas into functional, beautiful websites. I focus on
-            practical solutions that meet real user needs.
-          </p>
-          <p className="lead">
-            Check out the Work section below to see what I’ve been up to lately.
-          </p>
+        <div className="container mt-md-2 pt-md-5 pt-sm-4 text-white">
+          <div className="d-flex flex-column align-items-center">
+            <div className="col-6 col-md-6 col-lg-6 col-xl-6 d-flex justify-content-end">
+              <div className="client-image">
+                <img
+                  src="https://via.placeholder.com/532x467"
+                  alt="client-image"
+                  className="img-fluid"
+                ></img>
+              </div>
+            </div>
+            <div className="col-4 d-flex flex-column align-content-between client-info-col mt-5 pt-3 ml-lg-5">
+              <div className="client-quote">
+                <p className="client-quote__line text-justify text-md-left">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Aliquid optio doloribus maiores mollitia quaerat libero ut
+                  odio rerum et id?
+                </p>
+              </div>
+              <div className="client-description">
+                <h5 className="client-name">Lorem Ipsum</h5>
+                <h6 className="client-company">Renault LATAM</h6>
+              </div>
+              <div className="service-link d-flex client-link mt-lg-3">
+                <a
+                  className="service-link-line client-link-line text-nowrap"
+                  href="./case.html"
+                >
+                  SAIBA MAIS
+                </a>
+                <div className="arrow-line client-arrow-line"></div>
+                <div className="arrow ml-2 client-arrow"></div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </Html>
