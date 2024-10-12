@@ -11,9 +11,6 @@ import useNotebook from './store/useNotebook';
 import Env from './Components/Environment/Env';
 import Room from './Components/Room';
 import Captions from './Components/UI/Captions/Captions';
-import PageButton from './Components/UI/Buttons/PageButton';
-import AboutMe from './Components/UI/FauxPages/Pages/AboutMe';
-import Skills from './Components/UI/FauxPages/Pages/Skills';
 
 // Lazy import WordCloudComponent to avoid loading it on mobile devices:
 const WordCloudComponent = lazy(
@@ -122,8 +119,6 @@ export default function Experience() {
           <Room {...roomProps} />
           <WordCloudComponent {...wordCloudComponentProps} />
         </group>
-        <AboutMe />
-        <Skills />
       </Center>
       {roomPage === 'notebook' && <Captions {...captionsProps} />}
     </>

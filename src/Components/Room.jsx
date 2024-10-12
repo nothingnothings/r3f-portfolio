@@ -1,5 +1,6 @@
 // * LIBRARY IMPORTS
 import React, { useRef, useEffect, useState } from 'react';
+import { LoopOnce } from 'three';
 import { useControls, button } from 'leva';
 import { useGLTF, useAnimations } from '@react-three/drei';
 import gsap from 'gsap';
@@ -16,12 +17,13 @@ import HingeButtons from './UI/Buttons/HingeButtons';
 import PowerButtons from './UI/Buttons/PowerButtons';
 import RectLight from './Lights/RectLight';
 import SocialMediaPanel from './UI/SocialMediaPanel/SocialMediaPanel';
+import AboutMe from './UI/FauxPages/Pages/AboutMe';
+import Skills from './UI/FauxPages/Pages/Skills';
 
 // * UTILS
 import { screenLightOn, screenLightOff } from '../Utils/utils';
 import { useFloat } from '../hooks/useFloat';
 import useNotebook from '../store/useNotebook';
-import { LoopOnce } from 'three';
 
 export default function Room(props) {
   // * ZUSTAND STORE
@@ -78,8 +80,10 @@ export default function Room(props) {
 
   // * UI REFS:
   const UIRef = useRef();
-
   const groupRef = useRef();
+
+  const aboutRef = useRef();
+  const skillsRef = useRef();
 
   useFloat(groupRef, { distance: 7, enableRotation: true }, startFloat);
 
@@ -138,6 +142,7 @@ export default function Room(props) {
       openButtonRef.current.style.display = 'none';
       setStartFloat(true);
       switchRoomPage(pageType);
+      console.log(roomPage, 'THE ROOM PAGE');
     }, 3000);
 
     setTimeout(() => {
@@ -150,7 +155,9 @@ export default function Room(props) {
       });
 
       // destroy the notebook group:
-      lenovoBookRef.current.parent.remove(lenovoBookRef.current);
+      if (lenovoBookRef.current.parent) {
+        lenovoBookRef.current.parent.remove(lenovoBookRef.current);
+      }
     }, 4000);
   };
 
@@ -322,6 +329,16 @@ export default function Room(props) {
     switchPage,
   };
 
+  const aboutPageParameters = {
+    visible: roomPage === 'about',
+    UIRef: aboutRef,
+  };
+
+  const skillsPageParameters = {
+    visible: roomPage === 'skills',
+    UIRef: skillsRef,
+  };
+
   return (
     <>
       <PresControls>
@@ -334,6 +351,8 @@ export default function Room(props) {
           <RectLight {...rectLightParameters} />
           <Screens {...screenParameters} />
         </group>
+        <AboutMe {...aboutPageParameters} />
+        <Skills {...skillsPageParameters} />
       </PresControls>
       <SocialMediaPanel {...socialMediaPanelParameters} />
     </>

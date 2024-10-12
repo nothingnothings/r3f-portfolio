@@ -1,10 +1,47 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { Html } from '@react-three/drei';
+import gsap from 'gsap';
 
-import PageWrapper from '../PageWrapper';
+export default function Skills({ visible, UIRef }) {
+  useEffect(() => {
+    if (visible) {
+      showPanel();
+    } else {
+      hidePanel();
+    }
+  }, [visible]);
 
-export default function Skills({ onPagePrev }) {
+  const showPanel = () => {
+    gsap.to(UIRef.current, {
+      opacity: 1,
+      delay: 2.5,
+      duration: 1.5,
+      onStart: () => {
+        UIRef.current.style.display = 'block';
+      },
+      onComplete: () => {
+        UIRef.current.style.pointerEvents = 'all';
+      },
+    });
+  };
+
+  const hidePanel = () => {
+    if (UIRef.current) {
+      gsap.to(UIRef.current, {
+        opacity: 0,
+        duration: 1.5,
+        onStart: () => {
+          UIRef.current.style.pointerEvents = 'none';
+        },
+        onComplete: () => {
+          UIRef.current.style.display = 'none';
+        },
+      });
+    }
+  };
+
   return (
-    <PageWrapper position={[6, 0, 0]} sectionId="skills-section" title="Skills">
+    <Html visible={visible} ref={UIRef} style={{ opacity: 0 }}>
       <div
         className="row d-flex justify-content-between align-items-center"
         style={{ marginTop: '4rem' }}
@@ -581,7 +618,6 @@ export default function Skills({ onPagePrev }) {
           </p>
         </div>
       </div>
-      <button onClick={onPagePrev}>Go to Page 2</button>
-    </PageWrapper>
+    </Html>
   );
 }
