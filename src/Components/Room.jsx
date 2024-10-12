@@ -148,7 +148,6 @@ export default function Room(props) {
       openButtonRef.current.style.display = 'none';
       setStartFloat(true);
       switchRoomPage(pageType);
-      console.log(roomPage, 'THE ROOM PAGE');
     }, 2100);
 
     setTimeout(() => {
