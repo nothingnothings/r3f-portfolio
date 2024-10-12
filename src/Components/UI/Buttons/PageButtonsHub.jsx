@@ -1,6 +1,6 @@
 export default function PageButtonsHub({ activePage, switchPage }) {
   return (
-    <div className="d-flex justify-content-end pageButtonsHubWrapper interface titilium-web">
+    <div className="d-flex justify-content-end pageButtonsHubWrapper interface titilium-web" style={{zIndex: 100}}>
       <div className="controls">
         <div className="section d-flex flex-column">
           <button

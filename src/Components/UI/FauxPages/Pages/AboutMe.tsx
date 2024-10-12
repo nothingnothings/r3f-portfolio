@@ -60,27 +60,23 @@ export default function AboutMe({ visible, UIRef }) {
       scale={[0.2, 0.2, 0.2]}
     >
       <div className="mt-5 pt-5 titilium-web">
-        <div className="text-center text-white pt-5 mt-5">
-          <h1>About Me</h1>
-        </div>
-        <div className="container mt-4 pt-sm-4 text-white">
-          <div className="d-flex flex-column align-items-center">
-            <div className="col-6 col-md-6 col-lg-6 col-xl-6 d-flex justify-content-center">
-              <div className="">
+        {/* <div className="text-center text-white pt-5 mt-5 mb-0 pb-0">
+          <h1 className={'mt-5 pt-4'}>About Me</h1>
+        </div> */}
+        <div className="container-fluid mt-5 pt-5 text-white">
+          <div className="d-flex flex-column mt-5 align-items-center">
+            <div className="d-flex col-4 justify-content-center">
+              <div className="mt-3 pt-3">
                 <img
-                  src="https://via.placeholder.com/400x400"
+                  // src="https://via.placeholder.com/400x400"
+                  src="/images/arthur-panazolo.jpeg"
                   alt="client-image"
-                  className="img-fluid"
+                  className="img-fluid rounded-circle rounded-image"
                 ></img>
               </div>
             </div>
-            <div className="col-6 d-flex flex-column align-content-between client-info-col mt-5 pt-3 ml-lg-5">
+            <div className="d-flex col-6 flex-column align-content-between client-info-col mt-5">
               <div className="">
-                {/* <h4 className="client-quote__line">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Aliquid optio doloribus maiores mollitia quaerat libero ut
-                  odio rerum et id?
-                </h4> */}
                 <p className="lead" style={{ textAlign: 'justify' }}>
                   Hello, My name is{' '}
                   <strong style={{ color: '#ffff01' }}>Arthur Panazolo.</strong>{' '}

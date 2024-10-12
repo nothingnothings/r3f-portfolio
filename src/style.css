@@ -421,3 +421,11 @@ canvas {
   color: #ffffff !important;
   pointer-events: none;
 }
+
+.rounded-image {
+  border-radius: 50%;
+  width: 400px; /* Maintain dimensions for a circle */
+  height: 400px;
+  object-fit: cover;
+  border: 6px solid white; /* Adjust border thickness and color */
+}
