@@ -1,8 +1,16 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Html } from '@react-three/drei';
 import gsap from 'gsap';
 
 export default function Skills({ visible, UIRef }) {
+  const [htmlElement, setHtmlElement] = useState<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    if (htmlElement && htmlElement.parentElement) {
+      htmlElement.parentElement.style.pointerEvents = 'none';
+    }
+  }, [htmlElement]);
+
   useEffect(() => {
     if (visible) {
       showPanel();
@@ -14,7 +22,7 @@ export default function Skills({ visible, UIRef }) {
   const showPanel = () => {
     gsap.to(UIRef.current, {
       opacity: 1,
-      delay: 2.5,
+      delay: 3.5,
       duration: 1.5,
       onStart: () => {
         UIRef.current.style.display = 'block';
@@ -41,11 +49,16 @@ export default function Skills({ visible, UIRef }) {
   };
 
   return (
-    <Html 
-    visible={visible} 
-    ref={UIRef} 
-    prepend 
-    style={{ opacity: 0 }}>
+    <Html
+      visible={visible}
+      ref={setHtmlElement}
+      style={{ opacity: 0, pointerEvents: 'none' }}
+      prepend
+      transform
+      position={[0, 1.8, 0]}
+      rotation={[-Math.PI * 0.08, 0, 0]}
+      scale={[0.2, 0.2, 0.2]}
+    >
       <div
         className="row d-flex justify-content-between align-items-center"
         style={{ marginTop: '4rem' }}
