@@ -11,10 +11,21 @@ import useNotebook from '../../store/useNotebook';
 import PageButtonsHub from '../UI/Buttons/PageButtonsHub';
 
 const ExperienceWrapper = () => {
-  const isFinishedBooting = useNotebook((state) => state.isFinishedBooting);
+  const isOpen = useNotebook((state) => state.isOpen);
   const isPoweredOn = useNotebook((state) => state.isPoweredOn);
+  const isFinishedBooting = useNotebook((state) => state.isFinishedBooting);
+
   const roomPage = useNotebook((state) => state.roomPage);
   const switchRoomPage = useNotebook((state) => state.switchRoomPage);
+
+  // * PAGEBUTTONSHUB PARAMETERS
+  const pageButtonsHubProps = {
+    isOpen,
+    isPoweredOn,
+    isFinishedBooting,
+    roomPage,
+    switchRoomPage,
+  };
 
   useEffect(() => {
     backgroundSetter();
@@ -42,9 +53,7 @@ const ExperienceWrapper = () => {
         />
       </Canvas>
 
-      {isPoweredOn && isFinishedBooting && (
-        <PageButtonsHub activePage={roomPage} switchPage={switchRoomPage} />
-      )}
+      <PageButtonsHub {...pageButtonsHubProps} />
     </>
   );
 };

@@ -1,27 +1,76 @@
-export default function PageButtonsHub({ activePage, switchPage }) {
+import gsap from 'gsap';
+import { useEffect, useRef } from 'react';
+
+export default function PageButtonsHub({
+  roomPage,
+  switchRoomPage,
+  isOpen,
+  isPoweredOn,
+  isFinishedBooting,
+}) {
+  const hubRef = useRef();
+
+  useEffect(() => {
+    if (isFinishedBooting) {
+      showPanel();
+    } else {
+      hidePanel();
+    }
+  }, [isFinishedBooting]);
+
   const notebookPageSwitch = () => {
-    switchPage('notebook');
+    switchRoomPage('notebook');
     // reload the page after 300ms:
     setInterval(() => window.location.reload(), 1500);
+  };
+
+  const showPanel = () => {
+    gsap.to(hubRef.current, {
+      opacity: 1,
+      delay: 2.5,
+      duration: 1.5,
+      onStart: () => {
+        hubRef.current.style.display = 'block';
+      },
+      onComplete: () => {
+        hubRef.current.style.pointerEvents = 'all';
+      },
+    });
+  };
+
+  const hidePanel = () => {
+    if (hubRef.current) {
+      gsap.to(hubRef.current, {
+        opacity: 0,
+        duration: 1.5,
+        onStart: () => {
+          hubRef.current.style.pointerEvents = 'none';
+        },
+        onComplete: () => {
+          hubRef.current.style.display = 'none';
+        },
+      });
+    }
   };
 
   return (
     <div
       className="d-flex justify-content-end pageButtonsHubWrapper interface titilium-web"
-      style={{ zIndex: 100, height: '100%' }}
+      style={{ zIndex: 100, height: '100%', pointerEvents: 'none', opacity: 0 }}
+      ref={hubRef}
     >
       <div className="controls">
         <div className="section d-flex flex-column text-start">
           <button
             className={
               'btn p-0 m-0 btn--ghost' +
-              (activePage === 'notebook' ? ' active-button' : '')
+              (roomPage === 'notebook' ? ' active-button' : '')
             }
             onClick={notebookPageSwitch}
           >
             <span
               className={
-                'dot m-2' + (activePage === 'notebook' ? ' dot-active' : '')
+                'dot m-2' + (roomPage === 'notebook' ? ' dot-active' : '')
               }
             />
             Notebook
@@ -29,14 +78,14 @@ export default function PageButtonsHub({ activePage, switchPage }) {
           <button
             className={
               'btn p-0 m-0 btn--ghost' +
-              (activePage === 'about' ? ' active-button' : '')
+              (roomPage === 'about' ? ' active-button' : '')
             }
-            onClick={() => switchPage('about')}
+            onClick={() => switchRoomPage('about')}
           >
-            {activePage === 'about' && (
+            {roomPage === 'about' && (
               <span
                 className={
-                  'dot m-2' + (activePage === 'about' ? ' dot-active' : '')
+                  'dot m-2' + (roomPage === 'about' ? ' dot-active' : '')
                 }
               />
             )}
@@ -45,14 +94,14 @@ export default function PageButtonsHub({ activePage, switchPage }) {
           <button
             className={
               'btn p-0 m-0 btn--ghost' +
-              (activePage === 'skills' ? ' active-button' : '')
+              (roomPage === 'skills' ? ' active-button' : '')
             }
-            onClick={() => switchPage('skills')}
+            onClick={() => switchRoomPage('skills')}
           >
-            {activePage === 'skills' && (
+            {roomPage === 'skills' && (
               <span
                 className={
-                  'dot m-2' + (activePage === 'skills' ? ' dot-active' : '')
+                  'dot m-2' + (roomPage === 'skills' ? ' dot-active' : '')
                 }
               />
             )}
