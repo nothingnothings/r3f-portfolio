@@ -27,9 +27,6 @@ export default function AboutMe({ visible, UIRef }) {
       onStart: () => {
         htmlElement!.style.display = 'block';
       },
-      onComplete: () => {
-        htmlElement!.style.pointerEvents = 'all';
-      },
     });
   };
 

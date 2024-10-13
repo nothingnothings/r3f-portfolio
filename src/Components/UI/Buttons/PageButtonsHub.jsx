@@ -13,7 +13,7 @@ export default function PageButtonsHub({ activePage, switchPage }) {
             }
             onClick={() => window.location.reload()}
           >
-            Home
+            Notebook
           </button>
           <button
             className={

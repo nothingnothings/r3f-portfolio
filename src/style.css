@@ -324,18 +324,20 @@ canvas {
 
 .section {
   padding: 2em;
+  gap: 0.25em;
   text-align: center;
 }
 
 .btn {
   position: relative;
   margin: 1em;
-  border-radius: 4rem !important;
-  text-align: center;
+  text-align: start !important;
   white-space: nowrap;
   cursor: pointer;
   font-size: 2rem !important;
   transition: all 0.3s ease-in !important;
+  border: none;
+  outline: none;
 }
 
 .btn:focus,
@@ -346,7 +348,7 @@ canvas {
 
 .btn--ghost {
   background-color: transparent !important;
-  display: inline-block;
+  /* display: inline-block; */
   /* border: 2px solid rgba(0, 25, 51) !important; */
   color: rgba(0, 25, 51) !important;
   border-radius: 100%;
@@ -357,58 +359,6 @@ canvas {
   background-color: transparent !important;
   /* border: 2px solid #ffffff !important; */
   color: #ffffff !important;
-}
-
-.btn--dropdown {
-  padding-right: 3em;
-}
-
-.btn--dropdown:before {
-  content: '';
-  right: 24px;
-  top: 22px;
-  width: 2px;
-  height: 6px;
-  background-color: rgba(0, 0, 0, 0.1);
-  position: absolute;
-  transform: rotate(-45deg);
-}
-
-.btn--dropdown:after {
-  content: '';
-  right: 20px;
-  top: 22px;
-  width: 2px;
-  height: 6px;
-  background-color: rgba(0, 0, 0, 0.1);
-  position: absolute;
-  transform: rotate(45deg);
-}
-
-.btn-group {
-  vertical-align: middle;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.btn-group__item {
-  float: left;
-}
-
-.btn-group__item:first-child .btn {
-  border-radius: 30px 0 0 30px;
-}
-
-.btn-group__item .btn {
-  border-radius: 0;
-  margin: 0;
-  border-right: 1px solid rgba(0, 0, 0, 0.1);
-}
-
-.btn-group__item:last-child .btn {
-  border-radius: 0 30px 30px 0;
-  border-right: 0;
 }
 
 .active-button {
