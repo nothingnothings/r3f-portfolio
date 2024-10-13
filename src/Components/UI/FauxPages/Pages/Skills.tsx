@@ -20,15 +20,12 @@ export default function Skills({ visible, UIRef }) {
   }, [visible]);
 
   const showPanel = () => {
-    gsap.to(UIRef.current, {
+    gsap.to(htmlElement, {
       opacity: 1,
       delay: 3.5,
       duration: 1.5,
       onStart: () => {
-        UIRef.current.style.display = 'block';
-      },
-      onComplete: () => {
-        UIRef.current.style.pointerEvents = 'all';
+        htmlElement!.style.display = 'block';
       },
     });
   };
