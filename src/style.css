@@ -210,24 +210,16 @@ canvas {
 
 @keyframes animate-pulse {
   0% {
-    box-shadow:
-      0 0 0 0 #fff,
-      0 0 0 0 #fff;
+    box-shadow: 0 0 0 0 #fff, 0 0 0 0 #fff;
   }
   40% {
-    box-shadow:
-      0 0 0 3px rgba(255, 109, 74, 0),
-      0 0 0 0 #fff;
+    box-shadow: 0 0 0 3px rgba(255, 109, 74, 0), 0 0 0 0 #fff;
   }
   80% {
-    box-shadow:
-      0 0 0 3px rgba(255, 109, 74, 0),
-      0 0 0 3px rgba(255, 109, 74, 0);
+    box-shadow: 0 0 0 3px rgba(255, 109, 74, 0), 0 0 0 3px rgba(255, 109, 74, 0);
   }
   100% {
-    box-shadow:
-      0 0 0 0 rgba(255, 109, 74, 0),
-      0 0 0 3px rgba(255, 109, 74, 0);
+    box-shadow: 0 0 0 0 rgba(255, 109, 74, 0), 0 0 0 3px rgba(255, 109, 74, 0);
   }
 }
 
@@ -301,7 +293,7 @@ canvas {
 
 .controls {
   position: absolute;
-  top: 25%;
+  top: 15%;
   left: 0;
 }
 
@@ -346,13 +338,16 @@ canvas {
   transition: all 0.3s ease-in !important;
 }
 
-.btn:focus {
+.btn:focus,
+.btn:active {
   outline: none;
+  border: none;
 }
 
 .btn--ghost {
   background-color: transparent !important;
-  border: 2px solid rgba(0, 25, 51) !important;
+  display: inline-block;
+  /* border: 2px solid rgba(0, 25, 51) !important; */
   color: rgba(0, 25, 51) !important;
   border-radius: 100%;
   transition: all 0.2s ease-in;
@@ -360,7 +355,7 @@ canvas {
 
 .btn--ghost:hover {
   background-color: transparent !important;
-  border: 2px solid #ffffff !important;
+  /* border: 2px solid #ffffff !important; */
   color: #ffffff !important;
 }
 
@@ -417,15 +412,15 @@ canvas {
 }
 
 .active-button {
-  border: 2px solid #ffffff !important;
+  /* border: 2px solid #ffffff !important; */
   color: #ffffff !important;
   pointer-events: none;
 }
 
 .rounded-image {
   border-radius: 50%;
-  width: 400px; /* Maintain dimensions for a circle */
+  width: 400px;
   height: 400px;
   object-fit: cover;
-  border: 6px solid white; /* Adjust border thickness and color */
+  border: 6px solid white;
 }

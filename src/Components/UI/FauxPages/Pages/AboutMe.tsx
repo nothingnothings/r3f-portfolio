@@ -60,9 +60,6 @@ export default function AboutMe({ visible, UIRef }) {
       scale={[0.2, 0.2, 0.2]}
     >
       <div className="mt-5 pt-5 titilium-web">
-        {/* <div className="text-center text-white pt-5 mt-5 mb-0 pb-0">
-          <h1 className={'mt-5 pt-4'}>About Me</h1>
-        </div> */}
         <div className="container-fluid mt-5 pt-5 text-white">
           <div className="d-flex flex-column mt-5 align-items-center">
             <div className="d-flex col-4 justify-content-center">
@@ -91,8 +88,8 @@ export default function AboutMe({ visible, UIRef }) {
                 </p>
                 <p className="lead" style={{ textAlign: 'justify' }}>
                   Check out the{' '}
-                  <strong style={{ color: '#ffff01' }}>Projects</strong> section
-                  below to see what I’ve been up to lately.
+                  <strong style={{ color: '#ffff01' }}>Skills</strong> section
+                  to see what I can help you with.
                 </p>
               </div>
             </div>

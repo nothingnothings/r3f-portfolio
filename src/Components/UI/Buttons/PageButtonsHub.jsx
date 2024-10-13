@@ -1,11 +1,14 @@
 export default function PageButtonsHub({ activePage, switchPage }) {
   return (
-    <div className="d-flex justify-content-end pageButtonsHubWrapper interface titilium-web" style={{zIndex: 100}}>
+    <div
+      className="d-flex justify-content-end pageButtonsHubWrapper interface titilium-web"
+      style={{ zIndex: 100, height: '100%' }}
+    >
       <div className="controls">
-        <div className="section d-flex flex-column">
+        <div className="section d-flex flex-column text-start">
           <button
             className={
-              'btn px-lg-4 py-lg-3 btn--ghost' +
+              'btn p-0 m-0 btn--ghost' +
               (activePage === 'notebook' ? ' active-button' : '')
             }
             onClick={() => window.location.reload()}
@@ -14,7 +17,7 @@ export default function PageButtonsHub({ activePage, switchPage }) {
           </button>
           <button
             className={
-              'btn px-lg-4 py-lg-3 btn--ghost' +
+              'btn p-0 m-0 btn--ghost' +
               (activePage === 'about' ? ' active-button' : '')
             }
             onClick={() => switchPage('about')}
@@ -23,13 +26,11 @@ export default function PageButtonsHub({ activePage, switchPage }) {
           </button>
           <button
             className={
-              'btn px-lg-4 py-lg-3 btn--ghost' +
+              'btn p-0 m-0 btn--ghost' +
               (activePage === 'skills' ? ' active-button' : '')
             }
             onClick={() => switchPage('skills')}
-          >
-            Skills
-          </button>
+          >Skills</button>
         </div>
       </div>
     </div>

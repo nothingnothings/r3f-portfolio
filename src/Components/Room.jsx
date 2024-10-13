@@ -91,7 +91,7 @@ export default function Room(props) {
   const aboutRef = useRef();
   const skillsRef = useRef();
 
-  useFloat(groupRef, { distance: 7, enableRotation: true }, startFloat);
+  useFloat(groupRef, { distance: 5, enableRotation: true }, startFloat);
 
   const {} = useControls('Float', {
     float: button(() => float()),
