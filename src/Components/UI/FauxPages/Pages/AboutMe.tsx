@@ -15,7 +15,6 @@ export default function AboutMe({ visible, infoPagesVisited }) {
     if (visible) {
       showPanel();
     } else {
-      console.log('ENTERED');
       hidePanel();
     }
   }, [visible]);
