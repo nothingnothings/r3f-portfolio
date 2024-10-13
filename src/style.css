@@ -326,6 +326,7 @@ canvas {
   padding: 2em;
   gap: 0.25em;
   text-align: center;
+  /* position: relative; */
 }
 
 button {
@@ -357,6 +358,7 @@ button {
   color: rgba(0, 25, 51) !important;
   border-radius: 100%;
   transition: all 0.2s ease-in;
+  position: relative
 }
 
 .btn--ghost:hover {
@@ -367,6 +369,23 @@ button {
 .active-button {
   color: #ffffff !important;
   pointer-events: none;
+}
+
+.dot {
+  display: inline-block;
+  width: 0.4rem; /* Dot width */
+  height: 0.4rem; /* Dot height */
+  background-color: #ffffff; /* Dot color */
+  border-radius: 50%; /* Make it circular */
+  vertical-align: middle; /* Align with text */
+  opacity: 0; /* Start hidden */
+  transition: opacity 0.5s ease; /* Smooth transition for opacity */
+  position: absolute;
+  transform: translateY(210%) translateX(-400%); /* Center horizontally */
+}
+
+.dot-active {
+  opacity: 1; /* Show the dot */
 }
 
 .rounded-image {

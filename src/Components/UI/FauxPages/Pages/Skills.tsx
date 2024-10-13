@@ -79,7 +79,6 @@ export default function Skills({ visible, UIRef }) {
                 </svg>
                 HTML
               </div>
-              <div className="skill_percentage">90%</div>
             </div>
             <div className="skill_bar" style={{ width: '90%' }}>
               <div className="skill_bar-slider" style={{ width: '0px' }}></div>
@@ -104,7 +103,6 @@ export default function Skills({ visible, UIRef }) {
                 </svg>
                 CSS / Bootstrap / Tailwind
               </div>
-              <div className="skill_percentage">70%</div>
             </div>
             <div className="skill_bar" style={{ width: '70%' }}>
               <div className="skill_bar-slider" style={{ width: '0px' }}></div>
@@ -133,10 +131,6 @@ export default function Skills({ visible, UIRef }) {
                 </svg>
                 JavaScript / TypeScript
               </div>
-              <div className="skill_percentage">75%</div>
-            </div>
-            <div className="skill_bar" style={{ width: '75%' }}>
-              <div className="skill_bar-slider" style={{ width: '0px' }}></div>
             </div>
           </div>
 
@@ -159,12 +153,8 @@ export default function Skills({ visible, UIRef }) {
                     d="M169.7 268.1h76.2l-38.1-91.6-38.1 91.6zM207.8 32L0 106.4l31.8 275.7 176 97.9 176-97.9 31.8-275.7L207.8 32zM338 373.8h-48.6l-26.2-65.4H152.6l-26.2 65.4H77.7L207.8 81.5 338 373.8z"
                   ></path>
                 </svg>
-                Angular
+                Vue
               </div>
-              <div className="skill_percentage">60%</div>
-            </div>
-            <div className="skill_bar" style={{ width: '60%' }}>
-              <div className="skill_bar-slider" style={{ width: '0px' }}></div>
             </div>
           </div>
 
@@ -184,12 +174,8 @@ export default function Skills({ visible, UIRef }) {
                 >
                   <path fill="currentColor" d=""></path>
                 </svg>
-                React / NextJS / GatsbyJS
+                React / NextJS
               </div>
-              <div className="skill_percentage">55%</div>
-            </div>
-            <div className="skill_bar" style={{ width: '55%' }}>
-              <div className="skill_bar-slider" style={{ width: '0px' }}></div>
             </div>
           </div>
 
@@ -210,10 +196,6 @@ export default function Skills({ visible, UIRef }) {
                 </svg>
                 Ionic
               </div>
-              <div className="skill_percentage">60%</div>
-            </div>
-            <div className="skill_bar" style={{ width: '60%' }}>
-              <div className="skill_bar-slider" style={{ width: '0px' }}></div>
             </div>
           </div>
         </div>
@@ -256,13 +238,6 @@ export default function Skills({ visible, UIRef }) {
                 </svg>
                 Java / Spring Boot
               </div>
-              <div className="skill_percentage">85%</div>
-            </div>
-            <div className="skill_bar" style={{ width: '85%' }}>
-              <div
-                className="skill_bar-slider"
-                style={{ width: '522.75px' }}
-              ></div>
             </div>
           </div>
 
@@ -284,13 +259,6 @@ export default function Skills({ visible, UIRef }) {
                 </svg>
                 NodeJS / ExpressJS / Socket.io / NestJS
               </div>
-              <div className="skill_percentage">75%</div>
-            </div>
-            <div className="skill_bar" style={{ width: '75%' }}>
-              <div
-                className="skill_bar-slider"
-                style={{ width: '461.25px' }}
-              ></div>
             </div>
           </div>
 
@@ -316,13 +284,6 @@ export default function Skills({ visible, UIRef }) {
                 </svg>
                 &nbsp;&nbsp;MongoDB
               </div>
-              <div className="skill_percentage">75%</div>
-            </div>
-            <div className="skill_bar" style={{ width: '75%' }}>
-              <div
-                className="skill_bar-slider"
-                style={{ width: '461.25px' }}
-              ></div>
             </div>
           </div>
 
@@ -344,13 +305,6 @@ export default function Skills({ visible, UIRef }) {
                 </svg>
                 Oracle DB
               </div>
-              <div className="skill_percentage">85%</div>
-            </div>
-            <div className="skill_bar" style={{ width: '85%' }}>
-              <div
-                className="skill_bar-slider"
-                style={{ width: '522.75px' }}
-              ></div>
             </div>
           </div>
         </div>
@@ -363,79 +317,13 @@ export default function Skills({ visible, UIRef }) {
         <div className="order-2 col-md-7 order-md-1 other-progress">
           <div className="skill font-weight-bold">
             <div className="skill_title d-flex justify-content-between ">
-              <div className="skill_name">
-                <svg
-                  width="2em"
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="mr-3 ionicon"
-                  viewBox="0 0 512 512"
-                >
-                  <title>Layers</title>
-                  <path
-                    d="M434.8 137.65l-149.36-68.1c-16.19-7.4-42.69-7.4-58.88 0L77.3 137.65c-17.6 8-17.6 21.09 0 29.09l148 67.5c16.89 7.7 44.69 7.7 61.58 0l148-67.5c17.52-8 17.52-21.1-.08-29.09zM160 308.52l-82.7 37.11c-17.6 8-17.6 21.1 0 29.1l148 67.5c16.89 7.69 44.69 7.69 61.58 0l148-67.5c17.6-8 17.6-21.1 0-29.1l-79.94-38.47"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="32"
-                  ></path>
-                  <path
-                    d="M160 204.48l-82.8 37.16c-17.6 8-17.6 21.1 0 29.1l148 67.49c16.89 7.7 44.69 7.7 61.58 0l148-67.49c17.7-8 17.7-21.1.1-29.1L352 204.48"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="32"
-                  ></path>
-                </svg>
-                MEAN Stack
-              </div>
-              <div className="skill_percentage">85%</div>
-            </div>
-            <div className="skill_bar" style={{ width: '85%' }}>
-              <div
-                className="skill_bar-slider"
-                style={{ width: '522.75px' }}
-              ></div>
+              <div className="skill_name">MEAN Stack</div>
             </div>
           </div>
 
           <div className="skill font-weight-bold">
             <div className="skill_title d-flex justify-content-between ">
-              <div className="skill_name">
-                <svg
-                  width="2em"
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="mr-3 ionicon"
-                  viewBox="0 0 512 512"
-                >
-                  <title>Layers</title>
-                  <path
-                    d="M434.8 137.65l-149.36-68.1c-16.19-7.4-42.69-7.4-58.88 0L77.3 137.65c-17.6 8-17.6 21.09 0 29.09l148 67.5c16.89 7.7 44.69 7.7 61.58 0l148-67.5c17.52-8 17.52-21.1-.08-29.09zM160 308.52l-82.7 37.11c-17.6 8-17.6 21.1 0 29.1l148 67.5c16.89 7.69 44.69 7.69 61.58 0l148-67.5c17.6-8 17.6-21.1 0-29.1l-79.94-38.47"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="32"
-                  ></path>
-                  <path
-                    d="M160 204.48l-82.8 37.16c-17.6 8-17.6 21.1 0 29.1l148 67.49c16.89 7.7 44.69 7.7 61.58 0l148-67.49c17.7-8 17.7-21.1.1-29.1L352 204.48"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="32"
-                  ></path>
-                </svg>
-                MERN Stack
-              </div>
-              <div className="skill_percentage">85%</div>
-            </div>
-            <div className="skill_bar" style={{ width: '85%' }}>
-              <div
-                className="skill_bar-slider"
-                style={{ width: '522.75px' }}
-              ></div>
+              <div className="skill_name">MERN Stack</div>
             </div>
           </div>
 
@@ -587,13 +475,6 @@ export default function Skills({ visible, UIRef }) {
                 </svg>
                 GraphQL / REST
               </div>
-              <div className="skill_percentage">70%</div>
-            </div>
-            <div className="skill_bar" style={{ width: '70%' }}>
-              <div
-                className="skill_bar-slider"
-                style={{ width: '430.5px' }}
-              ></div>
             </div>
           </div>
 
@@ -615,13 +496,6 @@ export default function Skills({ visible, UIRef }) {
                 </svg>
                 Docker
               </div>
-              <div className="skill_percentage">60%</div>
-            </div>
-            <div className="skill_bar" style={{ width: '60%' }}>
-              <div
-                className="skill_bar-slider"
-                style={{ width: '369px' }}
-              ></div>
             </div>
           </div>
         </div>

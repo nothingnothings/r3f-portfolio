@@ -19,6 +19,11 @@ export default function PageButtonsHub({ activePage, switchPage }) {
             }
             onClick={notebookPageSwitch}
           >
+            <span
+              className={
+                'dot m-2' + (activePage === 'notebook' ? ' dot-active' : '')
+              }
+            />
             Notebook
           </button>
           <button
@@ -28,6 +33,13 @@ export default function PageButtonsHub({ activePage, switchPage }) {
             }
             onClick={() => switchPage('about')}
           >
+            {activePage === 'about' && (
+              <span
+                className={
+                  'dot m-2' + (activePage === 'about' ? ' dot-active' : '')
+                }
+              />
+            )}
             About
           </button>
           <button
@@ -37,6 +49,13 @@ export default function PageButtonsHub({ activePage, switchPage }) {
             }
             onClick={() => switchPage('skills')}
           >
+            {activePage === 'skills' && (
+              <span
+                className={
+                  'dot m-2' + (activePage === 'skills' ? ' dot-active' : '')
+                }
+              />
+            )}
             Skills
           </button>
         </div>
