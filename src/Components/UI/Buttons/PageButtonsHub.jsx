@@ -1,4 +1,10 @@
 export default function PageButtonsHub({ activePage, switchPage }) {
+  const notebookPageSwitch = () => {
+    switchPage('notebook');
+    // reload the page after 300ms:
+    setInterval(() => window.location.reload(), 1500);
+  };
+
   return (
     <div
       className="d-flex justify-content-end pageButtonsHubWrapper interface titilium-web"
@@ -11,7 +17,7 @@ export default function PageButtonsHub({ activePage, switchPage }) {
               'btn p-0 m-0 btn--ghost' +
               (activePage === 'notebook' ? ' active-button' : '')
             }
-            onClick={() => window.location.reload()}
+            onClick={notebookPageSwitch}
           >
             Notebook
           </button>
@@ -30,7 +36,9 @@ export default function PageButtonsHub({ activePage, switchPage }) {
               (activePage === 'skills' ? ' active-button' : '')
             }
             onClick={() => switchPage('skills')}
-          >Skills</button>
+          >
+            Skills
+          </button>
         </div>
       </div>
     </div>
