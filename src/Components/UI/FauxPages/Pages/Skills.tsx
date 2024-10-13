@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Html } from '@react-three/drei';
 import gsap from 'gsap';
 
-export default function Skills({ visible, UIRef }) {
+export default function Skills({ visible, infoPagesVisited }) {
   const [htmlElement, setHtmlElement] = useState<HTMLDivElement | null>(null);
 
   useEffect(() => {
@@ -22,7 +22,7 @@ export default function Skills({ visible, UIRef }) {
   const showPanel = () => {
     gsap.to(htmlElement, {
       opacity: 1,
-      delay: 3.5,
+      delay: infoPagesVisited ? 2 : 3.5,
       duration: 1.5,
       onStart: () => {
         htmlElement!.style.display = 'block';
@@ -31,15 +31,15 @@ export default function Skills({ visible, UIRef }) {
   };
 
   const hidePanel = () => {
-    if (UIRef.current) {
-      gsap.to(UIRef.current, {
+    if (htmlElement) {
+      gsap.to(htmlElement, {
         opacity: 0,
         duration: 1.5,
         onStart: () => {
-          UIRef.current.style.pointerEvents = 'none';
+          htmlElement.style.pointerEvents = 'none';
         },
         onComplete: () => {
-          UIRef.current.style.display = 'none';
+          htmlElement.style.display = 'none';
         },
       });
     }

@@ -4,9 +4,8 @@ import { useEffect, useRef } from 'react';
 export default function PageButtonsHub({
   roomPage,
   switchRoomPage,
-  isOpen,
-  isPoweredOn,
   isFinishedBooting,
+  accessInfoPages,
 }) {
   const hubRef = useRef();
 
@@ -22,6 +21,15 @@ export default function PageButtonsHub({
     switchRoomPage('notebook');
     // reload the page after 300ms:
     setInterval(() => window.location.reload(), 1500);
+  };
+
+  const infoPageSwitch = (infoPage) => {
+    if (roomPage === 'notebook') {
+      switchRoomPage(infoPage);
+    } else {
+      switchRoomPage(infoPage);
+      accessInfoPages();
+    }
   };
 
   const showPanel = () => {
@@ -80,7 +88,7 @@ export default function PageButtonsHub({
               'btn p-0 m-0 btn--ghost' +
               (roomPage === 'about' ? ' active-button' : '')
             }
-            onClick={() => switchRoomPage('about')}
+            onClick={() => infoPageSwitch('about')}
           >
             {roomPage === 'about' && (
               <span
@@ -96,7 +104,7 @@ export default function PageButtonsHub({
               'btn p-0 m-0 btn--ghost' +
               (roomPage === 'skills' ? ' active-button' : '')
             }
-            onClick={() => switchRoomPage('skills')}
+            onClick={() => infoPageSwitch('skills')}
           >
             {roomPage === 'skills' && (
               <span

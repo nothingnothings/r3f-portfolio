@@ -17,6 +17,7 @@ const ExperienceWrapper = () => {
 
   const roomPage = useNotebook((state) => state.roomPage);
   const switchRoomPage = useNotebook((state) => state.switchRoomPage);
+  const accessInfoPages = useNotebook((state) => state.accessInfoPages);
 
   // * PAGEBUTTONSHUB PARAMETERS
   const pageButtonsHubProps = {
@@ -25,6 +26,7 @@ const ExperienceWrapper = () => {
     isFinishedBooting,
     roomPage,
     switchRoomPage,
+    accessInfoPages,
   };
 
   useEffect(() => {

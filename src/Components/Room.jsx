@@ -73,15 +73,12 @@ export default function Room(props) {
 
   // * ROOM PAGE STATE:
   const roomPage = useNotebook((state) => state.roomPage);
+  const infoPagesVisited = useNotebook((state) => state.infoPagesVisited);
 
   // * ROOM PAGE SWITCH METHODS
   const switchRoomPage = useNotebook((state) => state.switchRoomPage);
 
   // * BOUNDS REF
-  const bounds = useBounds();
-
-  const camera = useThree((state) => state.camera);
-
   const [startFloat, setStartFloat] = useState(false);
 
   // * UI REFS:
@@ -338,11 +335,13 @@ export default function Room(props) {
   const aboutPageParameters = {
     visible: roomPage === 'about',
     UIRef: aboutRef,
+    infoPagesVisited,
   };
 
   const skillsPageParameters = {
     visible: roomPage === 'skills',
     UIRef: skillsRef,
+    infoPagesVisited,
   };
 
   return (

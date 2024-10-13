@@ -5,6 +5,7 @@ export default create(
   subscribeWithSelector((set) => ({
     roomPage: 'notebook',
     isNewVisit: true,
+    infoPagesVisited: false,
     isOpen: false,
     loadedPage: 'linkedIn',
     isPoweredOn: false,
@@ -56,7 +57,6 @@ export default create(
         }
       });
     },
-
     finishBooting: () => {
       set((state) => {
         if (state.isFinishedBooting) {
@@ -72,6 +72,14 @@ export default create(
           return {};
         } else {
           return { loadedPage: page };
+        }
+      }),
+    accessInfoPages: () =>
+      set((state) => {
+        if (state.infoPagesVisited) {
+          return {};
+        } else {
+          return { infoPagesVisited: true };
         }
       }),
     // * UNUSED STATE (for the moment)

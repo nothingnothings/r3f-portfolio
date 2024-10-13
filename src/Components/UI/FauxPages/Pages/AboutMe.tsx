@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import gsap from 'gsap';
 import { Html } from '@react-three/drei';
 
-export default function AboutMe({ visible, UIRef }) {
+export default function AboutMe({ visible, infoPagesVisited }) {
   const [htmlElement, setHtmlElement] = useState<HTMLDivElement | null>(null);
   useEffect(() => {
     if (htmlElement && htmlElement.parentElement) {
@@ -15,6 +15,7 @@ export default function AboutMe({ visible, UIRef }) {
     if (visible) {
       showPanel();
     } else {
+      console.log('ENTERED');
       hidePanel();
     }
   }, [visible]);
@@ -22,7 +23,7 @@ export default function AboutMe({ visible, UIRef }) {
   const showPanel = () => {
     gsap.to(htmlElement, {
       opacity: 1,
-      delay: 3.5,
+      delay: infoPagesVisited ? 2 : 3.5,
       duration: 1.5,
       onStart: () => {
         htmlElement!.style.display = 'block';
@@ -31,7 +32,7 @@ export default function AboutMe({ visible, UIRef }) {
   };
 
   const hidePanel = () => {
-    if (UIRef.current) {
+    if (htmlElement) {
       gsap.to(htmlElement, {
         opacity: 0,
         duration: 1.5,
