@@ -374,6 +374,41 @@ button {
   color: #ffffff !important;
 }
 
+/* Extra large devices (large desktops) */
+@media (min-width: 1200px) {
+  #custom-btn {
+    font-size: 2rem !important; /* Slightly smaller */
+  }
+}
+
+/* Large devices (desktops) */
+@media (min-width: 992px) and (max-width: 1199px) {
+  #custom-btn {
+    font-size: 1.4rem !important; /* Smaller for standard desktops */
+  }
+}
+
+/* Medium devices (tablets) */
+@media (min-width: 768px) and (max-width: 991px) {
+  #custom-btn {
+    font-size: 1.4rem !important; /* Smaller for tablets */
+  }
+}
+
+/* Small devices (phones) */
+@media (min-width: 576px) and (max-width: 767px) {
+  #custom-btn {
+    font-size: 1.4rem !important; /* Smaller for phones */
+  }
+}
+
+/* Extra small devices (very small phones) */
+@media (max-width: 575px) {
+  #custom-btn {
+    font-size: 1.3rem !important; /* Smallest font for very small screens */
+  }
+}
+
 .active-button {
   color: #ffffff !important;
   pointer-events: none;

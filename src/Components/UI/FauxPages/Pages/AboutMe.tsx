@@ -52,7 +52,7 @@ export default function AboutMe({ visible, infoPagesVisited }) {
       style={{ opacity: 0, pointerEvents: 'none' }}
       prepend
       transform
-      position={[0, 1.8, 0]}
+      position={[0.1, 1.8, 0]}
       rotation={[-Math.PI * 0.08, 0, 0]}
       scale={[0.2, 0.2, 0.2]}
     >

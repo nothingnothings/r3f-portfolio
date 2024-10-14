@@ -70,6 +70,7 @@ export default function PageButtonsHub({
       <div className="controls">
         <div className="section d-flex flex-column text-start">
           <button
+            id="custom-btn"
             className={
               'btn p-0 m-0 btn--ghost' +
               (roomPage === 'notebook' ? ' active-button' : '')
@@ -81,9 +82,10 @@ export default function PageButtonsHub({
                 'dot m-2' + (roomPage === 'notebook' ? ' dot-active' : '')
               }
             />
-            Notebook
+            Book
           </button>
           <button
+            id="custom-btn"
             className={
               'btn p-0 m-0 btn--ghost' +
               (roomPage === 'about' ? ' active-button' : '')
@@ -100,6 +102,7 @@ export default function PageButtonsHub({
             About
           </button>
           <button
+            id="custom-btn"
             className={
               'btn p-0 m-0 btn--ghost' +
               (roomPage === 'skills' ? ' active-button' : '')

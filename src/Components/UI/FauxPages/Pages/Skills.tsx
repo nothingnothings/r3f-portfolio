@@ -52,7 +52,7 @@ export default function Skills({ visible, infoPagesVisited }) {
       style={{ opacity: 0, pointerEvents: 'none' }}
       prepend
       transform
-      position={[0, 1.8, -0.4]}
+      position={[0.1, 1.8, -0.4]}
       rotation={[-Math.PI * 0.08, 0, 0]}
       scale={[0.2, 0.2, 0.2]}
     >
@@ -164,6 +164,8 @@ export default function Skills({ visible, infoPagesVisited }) {
                         aria-hidden="true"
                         data-prefix="fab"
                         data-icon="react"
+                        height="32px"
+                        width="32px"
                         role="img"
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 512 512"
