@@ -73,49 +73,30 @@ export default function PageButtonsHub({
             id="custom-btn"
             className={
               'btn p-0 m-0 btn--ghost' +
-              (roomPage === 'notebook' ? ' active-button' : '')
+              (roomPage === 'notebook' ? ' active-button' : ' inactive-button')
             }
             onClick={notebookPageSwitch}
           >
-            <span
-              className={
-                'dot m-2' + (roomPage === 'notebook' ? ' dot-active' : '')
-              }
-            />
             Book
           </button>
           <button
             id="custom-btn"
             className={
               'btn p-0 m-0 btn--ghost' +
-              (roomPage === 'about' ? ' active-button' : '')
+              (roomPage === 'about' ? ' active-button' : ' inactive-button')
             }
             onClick={() => infoPageSwitch('about')}
           >
-            {roomPage === 'about' && (
-              <span
-                className={
-                  'dot m-2' + (roomPage === 'about' ? ' dot-active' : '')
-                }
-              />
-            )}
             About
           </button>
           <button
             id="custom-btn"
             className={
               'btn p-0 m-0 btn--ghost' +
-              (roomPage === 'skills' ? ' active-button' : '')
+              (roomPage === 'skills' ? ' active-button' : ' inactive-button')
             }
             onClick={() => infoPageSwitch('skills')}
           >
-            {roomPage === 'skills' && (
-              <span
-                className={
-                  'dot m-2' + (roomPage === 'skills' ? ' dot-active' : '')
-                }
-              />
-            )}
             Skills
           </button>
         </div>

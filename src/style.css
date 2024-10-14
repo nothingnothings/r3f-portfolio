@@ -210,24 +210,16 @@ canvas {
 
 @keyframes animate-pulse {
   0% {
-    box-shadow:
-      0 0 0 0 #fff,
-      0 0 0 0 #fff;
+    box-shadow: 0 0 0 0 #fff, 0 0 0 0 #fff;
   }
   40% {
-    box-shadow:
-      0 0 0 3px rgba(255, 109, 74, 0),
-      0 0 0 0 #fff;
+    box-shadow: 0 0 0 3px rgba(255, 109, 74, 0), 0 0 0 0 #fff;
   }
   80% {
-    box-shadow:
-      0 0 0 3px rgba(255, 109, 74, 0),
-      0 0 0 3px rgba(255, 109, 74, 0);
+    box-shadow: 0 0 0 3px rgba(255, 109, 74, 0), 0 0 0 3px rgba(255, 109, 74, 0);
   }
   100% {
-    box-shadow:
-      0 0 0 0 rgba(255, 109, 74, 0),
-      0 0 0 3px rgba(255, 109, 74, 0);
+    box-shadow: 0 0 0 0 rgba(255, 109, 74, 0), 0 0 0 3px rgba(255, 109, 74, 0);
   }
 }
 
@@ -412,6 +404,27 @@ button {
 .active-button {
   color: #ffffff !important;
   pointer-events: none;
+}
+
+.active-button::before {
+  font-family: 'Sans-serif'; /* Font family */
+  content: '•'; /* The dot character */
+  margin-right: 5px; /* Space between dot and text */
+  font-size: 1.2em; /* Adjust size if needed */
+  color: #ffffff; /* Change color if desired */
+  border-radius: 50%; /* Rounded corners */
+}
+
+
+
+.inactive-button::before {
+  font-family: 'Sans-serif'; /* Font family */
+  content: '•'; /* The dot character */
+  margin-right: 5px; /* Space between dot and text */
+  font-size: 1.2em; /* Adjust size if needed */
+  color: #ffffff; /* Change color if desired */
+  visibility: hidden; /* Initially hidden */
+  border-radius: 50%; /* Rounded corners */
 }
 
 .dot {
