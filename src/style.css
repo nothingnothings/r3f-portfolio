@@ -347,6 +347,10 @@ button {
   outline: none;
 }
 
+.btn[disabled] {
+  opacity: 1 !important;
+}
+
 .btn:focus,
 .btn:active {
   outline: none;
@@ -376,7 +380,7 @@ button {
 /* Large devices (desktops) */
 @media (min-width: 992px) and (max-width: 1199px) {
   #custom-btn {
-    font-size: 1.4rem !important; /* Smaller for standard desktops */
+    font-size: 1.6rem !important; /* Smaller for standard desktops */
   }
 }
 
@@ -396,8 +400,12 @@ button {
 
 /* Extra small devices (very small phones) */
 @media (max-width: 575px) {
+  .section {
+    padding-top: 5em;
+    padding-left: 1em;
+  }
   #custom-btn {
-    font-size: 1.3rem !important; /* Smallest font for very small screens */
+    font-size: 0.8rem !important; /* Smallest font for very small screens */
   }
 }
 
@@ -414,8 +422,6 @@ button {
   color: #ffffff; /* Change color if desired */
   border-radius: 50%; /* Rounded corners */
 }
-
-
 
 .inactive-button::before {
   font-family: 'Sans-serif'; /* Font family */

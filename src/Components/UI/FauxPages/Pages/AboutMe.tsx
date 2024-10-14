@@ -59,7 +59,7 @@ export default function AboutMe({ visible, infoPagesVisited }) {
       <div className="mt-5 pt-5 titilium-web">
         <div className="container-fluid mt-5 pt-5 text-white">
           <div className="d-flex flex-column mt-5 align-items-center">
-            <div className="d-flex col-4 justify-content-center">
+            <div className="d-flex col-sm-4 justify-content-center">
               <div className="mt-3 pt-3">
                 <img
                   // src="https://via.placeholder.com/400x400"
@@ -69,7 +69,7 @@ export default function AboutMe({ visible, infoPagesVisited }) {
                 ></img>
               </div>
             </div>
-            <div className="d-flex col-6 flex-column align-content-between client-info-col mt-5">
+            <div className="d-flex col-sm-6 flex-column align-content-between client-info-col mt-5">
               <div className="">
                 <p className="lead" style={{ textAlign: 'justify' }}>
                   Hello, My name is{' '}

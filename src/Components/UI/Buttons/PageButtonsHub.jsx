@@ -1,5 +1,5 @@
 import gsap from 'gsap';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 export default function PageButtonsHub({
   roomPage,
@@ -8,6 +8,7 @@ export default function PageButtonsHub({
   accessInfoPages,
 }) {
   const hubRef = useRef();
+  const [isSwitching, setIsSwitching] = useState(false);
 
   useEffect(() => {
     if (isFinishedBooting) {
@@ -18,18 +19,27 @@ export default function PageButtonsHub({
   }, [isFinishedBooting]);
 
   const notebookPageSwitch = () => {
+    setIsSwitching(true);
     switchRoomPage('notebook');
     // reload the page after 300ms:
-    setInterval(() => window.location.reload(), 1500);
+    setTimeout(() => {
+      window.location.reload();
+    }, 1500);
+    // Reset isSwitching after a timeout
+    setTimeout(() => setIsSwitching(false), 1500);
   };
 
   const infoPageSwitch = (infoPage) => {
+    if (isSwitching) return; // Prevent switching if already in progress
+    setIsSwitching(true);
     if (roomPage === 'notebook') {
       switchRoomPage(infoPage);
     } else {
       switchRoomPage(infoPage);
       accessInfoPages();
     }
+    // Reset isSwitching after a timeout (adjust timing as needed)
+    setTimeout(() => setIsSwitching(false), 3000);
   };
 
   const showPanel = () => {
@@ -76,6 +86,7 @@ export default function PageButtonsHub({
               (roomPage === 'notebook' ? ' active-button' : ' inactive-button')
             }
             onClick={notebookPageSwitch}
+            disabled={isSwitching}
           >
             Book
           </button>
@@ -86,6 +97,7 @@ export default function PageButtonsHub({
               (roomPage === 'about' ? ' active-button' : ' inactive-button')
             }
             onClick={() => infoPageSwitch('about')}
+            disabled={isSwitching}
           >
             About
           </button>
@@ -96,6 +108,7 @@ export default function PageButtonsHub({
               (roomPage === 'skills' ? ' active-button' : ' inactive-button')
             }
             onClick={() => infoPageSwitch('skills')}
+            disabled={isSwitching}
           >
             Skills
           </button>

@@ -64,7 +64,7 @@ export default function Skills({ visible, infoPagesVisited }) {
             style={{ marginTop: '5rem' }}
           >
             <div className="card-body d-flex justify-content-around align-items-center text-white">
-              <div className="d-flex col-6 flex-column">
+              <div className="d-flex col-4 col-sm-6 flex-column">
                 <h3 className="card-title mb-4">Frontend</h3>
                 <p className="card-text lead">
                   Proficient in a diverse selection of frontend tools and
@@ -254,7 +254,7 @@ export default function Skills({ visible, infoPagesVisited }) {
           >
             <div className="backend d-flex flex-column">
               <div className="card-body d-flex justify-content-around align-items-center">
-                <div className="d-flex col-6 flex-column">
+              <div className="d-flex col-4 col-sm-6 flex-column">
                   <h3 className="card-title mb-4">Backend Skills</h3>
                   <p className="lead">
                     Familiar with an array of backend programming languages and
@@ -425,7 +425,7 @@ export default function Skills({ visible, infoPagesVisited }) {
           >
             <div className="misc d-flex flex-column">
               <div className="card-body d-flex justify-content-around align-items-center">
-                <div className="d-flex col-6 flex-column">
+              <div className="d-flex col-4 col-sm-6 flex-column">
                   <h3 className="card-title mb-4">Misc</h3>
                   <p className="card-text lead">
                     Miscellaneous tools, technologies and resources that I have
