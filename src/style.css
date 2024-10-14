@@ -358,7 +358,7 @@ button {
   color: rgba(0, 25, 51) !important;
   border-radius: 100%;
   transition: all 0.2s ease-in;
-  position: relative
+  position: relative;
 }
 
 .btn--ghost:hover {
@@ -394,4 +394,15 @@ button {
   height: 400px;
   object-fit: cover;
   border: 6px solid white;
+}
+
+/* SKILLS PAGE */
+.frontend,
+.backend,
+.misc {
+  gap: 0.75rem;
+}
+
+.skill_name {
+  gap: 1.8rem;
 }

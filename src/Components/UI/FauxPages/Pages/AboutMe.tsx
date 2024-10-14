@@ -75,7 +75,7 @@ export default function AboutMe({ visible, infoPagesVisited }) {
                   Hello, My name is{' '}
                   <strong style={{ color: '#ffff01' }}>Arthur Panazolo.</strong>{' '}
                   I am a Full Stack Web Developer passionate about creating
-                  fast, responsive, and visually appealing web applications.
+                  fast, responsive and visually appealing web applications.
                 </p>
                 <p className="lead" style={{ textAlign: 'justify' }}>
                   With years of experience in the industry, I enjoy the
