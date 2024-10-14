@@ -313,7 +313,7 @@ export default function Skills({ visible, infoPagesVisited }) {
             className="row d-flex align-items-center justify-content-center text-white"
             style={{ marginTop: '5rem' }}
           >
-            <div className="col-5 backend d-flex flex-column">
+            <div className="col-6 backend d-flex flex-column ms-5 ps-4">
               <div className="skill font-weight-bold">
                 <div className="skill_title d-flex justify-content-start">
                   <div className="skill_name d-flex align-items-center justify-content-between">
@@ -443,7 +443,10 @@ export default function Skills({ visible, infoPagesVisited }) {
                 </div>
               </div>
             </div>
-            <div className="col-md-5 backend-description">
+            <div
+              className="col-5 backend-description"
+              style={{ marginLeft: 'auto' }}
+            >
               <h3 className="mb-4">Backend</h3>
               <p className="lead">
                 Familiar with an array of backend programming languages and
@@ -456,7 +459,7 @@ export default function Skills({ visible, infoPagesVisited }) {
             className="row d-flex justify-content-between align-items-center text-white"
             style={{ marginTop: '5rem' }}
           >
-            <div className="mx-auto  col-md-5 misc-description">
+            <div className="mx-auto col-5 misc-description">
               <h3 className="mb-4">Misc</h3>
               <p className="lead">
                 Miscellaneous tools, technologies and resources that I have
@@ -464,7 +467,7 @@ export default function Skills({ visible, infoPagesVisited }) {
               </p>
             </div>
 
-            <div className="col-md-5 misc d-flex flex-column">
+            <div className="col-5 misc d-flex flex-column">
               <div className="skill font-weight-bold">
                 <div className="skill_title d-flex justify-content-between ">
                   <div className="skill_name d-flex align-items-center justify-content-between">
