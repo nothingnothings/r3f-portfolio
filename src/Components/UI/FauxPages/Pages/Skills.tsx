@@ -57,7 +57,7 @@ export default function Skills({ visible, infoPagesVisited }) {
       scale={[0.2, 0.2, 0.2]}
     >
       <div className="mt-5 pt-5 titilium-web">
-        <div className="mt-5 pt-5 text-white">
+        <div className="mt-5 pt-3 text-white">
           {/* FRONTEND */}
           <div
             className="row d-flex justify-content-between align-items-center text-white"
