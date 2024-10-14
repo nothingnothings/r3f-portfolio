@@ -210,16 +210,24 @@ canvas {
 
 @keyframes animate-pulse {
   0% {
-    box-shadow: 0 0 0 0 #fff, 0 0 0 0 #fff;
+    box-shadow:
+      0 0 0 0 #fff,
+      0 0 0 0 #fff;
   }
   40% {
-    box-shadow: 0 0 0 3px rgba(255, 109, 74, 0), 0 0 0 0 #fff;
+    box-shadow:
+      0 0 0 3px rgba(255, 109, 74, 0),
+      0 0 0 0 #fff;
   }
   80% {
-    box-shadow: 0 0 0 3px rgba(255, 109, 74, 0), 0 0 0 3px rgba(255, 109, 74, 0);
+    box-shadow:
+      0 0 0 3px rgba(255, 109, 74, 0),
+      0 0 0 3px rgba(255, 109, 74, 0);
   }
   100% {
-    box-shadow: 0 0 0 0 rgba(255, 109, 74, 0), 0 0 0 3px rgba(255, 109, 74, 0);
+    box-shadow:
+      0 0 0 0 rgba(255, 109, 74, 0),
+      0 0 0 3px rgba(255, 109, 74, 0);
   }
 }
 
@@ -397,10 +405,14 @@ button {
 }
 
 /* SKILLS PAGE */
-.frontend,
-.backend,
-.misc {
-  gap: 0.75rem;
+
+.border-card {
+  border: 5px solid #ffffff !important;
+  background: transparent !important;
+}
+
+.skills-column {
+  gap: 0.4rem;
 }
 
 .skill_name {
