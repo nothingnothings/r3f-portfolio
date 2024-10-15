@@ -1,7 +1,7 @@
 // * LIBRARY IMPORTS
 import { lazy, useEffect, useRef } from 'react';
 import { useThree } from '@react-three/fiber';
-import { Center, useBounds } from '@react-three/drei';
+import { Center, useBounds, Html } from '@react-three/drei';
 import { useControls } from 'leva';
 
 // * ZUSTAND STORE
@@ -13,8 +13,8 @@ import Room from './Components/Room';
 import Captions from './Components/UI/Captions/Captions';
 
 // Lazy import WordCloudComponent to avoid loading it on mobile devices:
-const WordCloudComponent = lazy(() =>
-  import('./Components/WordCloud/WordCloud')
+const WordCloudComponent = lazy(
+  () => import('./Components/WordCloud/WordCloud')
 );
 
 export default function Experience() {
@@ -27,6 +27,10 @@ export default function Experience() {
     );
 
   const { camera, viewport } = useThree();
+
+  const { roomPage } = useNotebook((state) => state);
+
+  // * PAGE STATES (EXPERIENCE PAGE)
 
   // * NEW VISIT, OPEN/CLOSE, POWERED ON/OFF and PAGE STATES
   const isNewVisit = useNotebook((state) => state.isNewVisit); // * Initially True
@@ -116,7 +120,7 @@ export default function Experience() {
           <WordCloudComponent {...wordCloudComponentProps} />
         </group>
       </Center>
-      <Captions {...captionsProps} />
+      {roomPage === 'notebook' && <Captions {...captionsProps} />}
     </>
   );
 }

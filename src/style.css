@@ -12,6 +12,17 @@ body,
   background-position: center;
 }
 
+@font-face {
+  font-family: 'Titillium Web';
+  src: url('/fonts/titillium-web-v17-latin-regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.titilium-web {
+  font-family: 'Titillium Web', sans-serif !important;
+}
+
 .background {
   background-image: url('/images/mesh-190.png');
 }
@@ -113,7 +124,7 @@ canvas {
 }
 
 /* SCREENS */
-.bootScreen{
+.bootScreen {
   touch-action: pan-y;
 }
 
@@ -267,4 +278,197 @@ canvas {
 .external-link a {
   text-decoration: none;
   color: inherit;
+}
+
+/* PAGEBUTTONSHUB */
+.interface {
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.pageButtonsHubWrapper {
+  top: 20%;
+}
+
+.controls {
+  position: absolute;
+  top: 15%;
+  left: 0;
+}
+
+.controls .raw {
+  display: flex;
+  justify-content: center;
+}
+
+.controls .key {
+  width: 40px;
+  height: 40px;
+  margin: 4px;
+  border: 2px solid #ffffff;
+  background: #ffffff44;
+}
+
+.controls .key.large {
+  width: 144px;
+}
+
+.controls .key.active {
+  background: #ffffff99;
+}
+
+.transition {
+  transition: all 0.1s ease;
+}
+
+.section {
+  padding: 2em;
+  gap: 0.25em;
+  text-align: center;
+  /* position: relative; */
+}
+
+button {
+  border: none !important;
+  outline: none !important;
+  background: none;
+}
+
+.btn {
+  position: relative;
+  margin: 1em;
+  text-align: start !important;
+  white-space: nowrap;
+  cursor: pointer;
+  font-size: 2rem !important;
+  transition: all 0.3s ease-in !important;
+  border: none;
+  outline: none;
+}
+
+.btn[disabled] {
+  opacity: 1 !important;
+}
+
+.btn:focus,
+.btn:active {
+  outline: none;
+  border: none;
+}
+
+.btn--ghost {
+  background-color: transparent !important;
+  color: rgba(0, 25, 51) !important;
+  border-radius: 100%;
+  transition: all 0.2s ease-in;
+  position: relative;
+}
+
+.btn--ghost:hover {
+  background-color: transparent !important;
+  color: #ffffff !important;
+}
+
+/* Extra large devices (large desktops) */
+@media (min-width: 1200px) {
+  #custom-btn {
+    font-size: 2rem !important; /* Slightly smaller */
+  }
+}
+
+/* Large devices (desktops) */
+@media (min-width: 992px) and (max-width: 1199px) {
+  #custom-btn {
+    font-size: 1.6rem !important; /* Smaller for standard desktops */
+  }
+}
+
+/* Medium devices (tablets) */
+@media (min-width: 768px) and (max-width: 991px) {
+  #custom-btn {
+    font-size: 1.4rem !important; /* Smaller for tablets */
+  }
+}
+
+/* Small devices (phones) */
+@media (min-width: 576px) and (max-width: 767px) {
+  #custom-btn {
+    font-size: 1.4rem !important; /* Smaller for phones */
+  }
+}
+
+/* Extra small devices (very small phones) */
+@media (max-width: 575px) {
+  .section {
+    padding-top: 5em;
+    padding-left: 1em;
+  }
+  #custom-btn {
+    font-size: 0.8rem !important; /* Smallest font for very small screens */
+  }
+}
+
+.active-button {
+  color: #ffffff !important;
+  pointer-events: none;
+}
+
+.active-button::before {
+  font-family: 'Sans-serif'; /* Font family */
+  content: '•'; /* The dot character */
+  margin-right: 5px; /* Space between dot and text */
+  font-size: 1.2em; /* Adjust size if needed */
+  color: #ffffff; /* Change color if desired */
+  border-radius: 50%; /* Rounded corners */
+}
+
+.inactive-button::before {
+  font-family: 'Sans-serif'; /* Font family */
+  content: '•'; /* The dot character */
+  margin-right: 5px; /* Space between dot and text */
+  font-size: 1.2em; /* Adjust size if needed */
+  color: #ffffff; /* Change color if desired */
+  visibility: hidden; /* Initially hidden */
+  border-radius: 50%; /* Rounded corners */
+}
+
+.dot {
+  display: inline-block;
+  width: 0.4rem; /* Dot width */
+  height: 0.4rem; /* Dot height */
+  background-color: #ffffff; /* Dot color */
+  border-radius: 50%; /* Make it circular */
+  vertical-align: middle; /* Align with text */
+  opacity: 0; /* Start hidden */
+  transition: opacity 0.5s ease; /* Smooth transition for opacity */
+  position: absolute;
+  transform: translateY(210%) translateX(-400%); /* Center horizontally */
+}
+
+.dot-active {
+  opacity: 1; /* Show the dot */
+}
+
+.rounded-image {
+  border-radius: 50%;
+  width: 400px;
+  height: 400px;
+  object-fit: cover;
+  border: 6px solid white;
+}
+
+/* SKILLS PAGE */
+
+.border-card {
+  border: 5px solid #ffffff !important;
+  background: transparent !important;
+}
+
+.skills-column {
+  gap: 0.4rem;
+}
+
+.skill_name {
+  gap: 1.8rem;
 }

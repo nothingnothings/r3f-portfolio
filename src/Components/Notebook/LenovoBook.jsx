@@ -1,6 +1,10 @@
-import { meshBounds } from "@react-three/drei";
+import { meshBounds } from '@react-three/drei';
+
+import { useRef } from 'react';
 
 export default function LenovoBook({ nodes, materials, refName }) {
+
+
   return (
     <mesh
       name="LenovoBook"

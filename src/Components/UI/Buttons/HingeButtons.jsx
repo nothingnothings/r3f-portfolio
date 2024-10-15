@@ -37,7 +37,7 @@ function OpenNotebookButton({
     }, 3000);
   }, []);
 
-  
+
   // * METHOD
   const openNotebook = () => {
     const oldAction = animationsObject.actions['Close'];
@@ -130,7 +130,9 @@ function OpenNotebookButton({
         ref={refName}
         onClick={openNotebook}
       >
-        <i className="fa fa-caret-up"></i>
+        <i style={{
+          marginTop: '1px'
+        }} className="fa fa-caret-up"></i>
       </div>
     </Html>
   );

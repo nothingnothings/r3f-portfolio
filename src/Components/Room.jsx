@@ -1,7 +1,8 @@
 // * LIBRARY IMPORTS
 import React, { useRef, useEffect, useState } from 'react';
+import { LoopOnce } from 'three';
 import { useControls, button } from 'leva';
-import { useGLTF, useAnimations } from '@react-three/drei';
+import { useGLTF, useAnimations, Center, useBounds } from '@react-three/drei';
 import gsap from 'gsap';
 gsap.config({ nullTargetWarn: false });
 import CustomEase from 'gsap/CustomEase';
@@ -16,10 +17,14 @@ import HingeButtons from './UI/Buttons/HingeButtons';
 import PowerButtons from './UI/Buttons/PowerButtons';
 import RectLight from './Lights/RectLight';
 import SocialMediaPanel from './UI/SocialMediaPanel/SocialMediaPanel';
+import AboutMe from './UI/FauxPages/Pages/AboutMe';
+import Skills from './UI/FauxPages/Pages/Skills';
 
 // * UTILS
 import { screenLightOn, screenLightOff } from '../Utils/utils';
-import WordCloudComponent from './WordCloud/WordCloud';
+import { useFloat } from '../hooks/useFloat';
+import useNotebook from '../store/useNotebook';
+import { useThree } from '@react-three/fiber';
 
 export default function Room(props) {
   // * ZUSTAND STORE
@@ -66,8 +71,28 @@ export default function Room(props) {
   const powerOnButtonRef = useRef();
   const powerOffButtonRef = useRef();
 
+  // * ROOM PAGE STATE:
+  const roomPage = useNotebook((state) => state.roomPage);
+  const infoPagesVisited = useNotebook((state) => state.infoPagesVisited);
+
+  // * ROOM PAGE SWITCH METHODS
+  const switchRoomPage = useNotebook((state) => state.switchRoomPage);
+
+  // * BOUNDS REF
+  const [startFloat, setStartFloat] = useState(false);
+
   // * UI REFS:
   const UIRef = useRef();
+  const groupRef = useRef();
+
+  const aboutRef = useRef();
+  const skillsRef = useRef();
+
+  useFloat(groupRef, { distance: 5, enableRotation: true }, startFloat);
+
+  const {} = useControls('Float', {
+    float: button(() => float()),
+  });
 
   // * MODEL ANIMATIONS
   const animationsObject = useAnimations(animations, group);
@@ -91,11 +116,53 @@ export default function Room(props) {
   });
 
   useControls('Actions', {
-    OpenLid: button(() => openNotebook()),
-    CloseLid: button(() => closeNotebook()),
-    PowerOn: button(() => powerNotebookOn()),
-    PowerOff: button(() => powerNotebookOff()),
+    OpenLid: button(() => open()),
+    CloseLid: button(() => close()),
+    PowerOn: button(() => powerOn()),
+    PowerOff: button(() => powerOff()),
   });
+
+  const float = (pageType) => {
+    close();
+    githubHtmlRef.current.style.display = 'none';
+    linkedInHtmlRef.current.style.display = 'none';
+    closeButtonRef.current.style.display = 'none';
+    powerOnButtonRef.current.style.display = 'none';
+    powerOffButtonRef.current.style.display = 'none';
+    screenLightOff(lightRef);
+
+    // play close notebook animation:
+    const oldAction = animationsObject.actions['Open'];
+    oldAction.stop();
+
+    const action = animationsObject.actions['Close'];
+    animationsObject.actions['Close'].setLoop(LoopOnce, 1);
+    action.clampWhenFinished = true;
+    action.setDuration(1.8);
+    action.play();
+
+    setTimeout(() => {
+      openButtonRef.current.style.display = 'none';
+      setStartFloat(true);
+      switchRoomPage(pageType);
+    }, 2100);
+
+    setTimeout(() => {
+      // destroy the notebook mesh:
+      lenovoBookRef.current.traverse((child) => {
+        if (child.isMesh) {
+          child.geometry.dispose();
+          child.material.dispose();
+        }
+      });
+
+      // destroy the notebook group:
+      if (lenovoBookRef.current.parent) {
+        lenovoBookRef.current.parent.remove(lenovoBookRef.current);
+      }
+      // bounds.refresh(camera).clip().fit();
+    }, 4000);
+  };
 
   // * ANIMATION HANDLING:
   useEffect(() => {
@@ -110,6 +177,12 @@ export default function Room(props) {
     action.play();
     action.halt();
   }, [animationsObject.actions]);
+
+  useEffect(() => {
+    if (roomPage === 'about' || roomPage === 'skills') {
+      float(roomPage);
+    }
+  }, [roomPage]);
 
   // * LENOVOBOOK METHODS:
   const turnComputerFansOn = () => {
@@ -259,16 +332,39 @@ export default function Room(props) {
     switchPage,
   };
 
+  const aboutPageParameters = {
+    visible: roomPage === 'about',
+    UIRef: aboutRef,
+    infoPagesVisited,
+  };
+
+  const skillsPageParameters = {
+    visible: roomPage === 'skills',
+    UIRef: skillsRef,
+    infoPagesVisited,
+  };
+
   return (
     <>
       <PresControls>
         <group {...groupParameters}>
-          <LenovoBook {...lenovoBookParameters} />
-          <Screens {...screenParameters} />
+          {/* {roomPage === 'notebook' && ( */}
+          <group ref={groupRef}>
+            <LenovoBook {...lenovoBookParameters} />
+          </group>
+          {/* )} */}
+
           <HingeButtons {...hingeButtonParameters} />
           <PowerButtons {...powerButtonParameters} />
           <RectLight {...rectLightParameters} />
+          <Screens {...screenParameters} />
         </group>
+        <Center>
+          <AboutMe {...aboutPageParameters} />
+        </Center>
+        <Center>
+          <Skills {...skillsPageParameters} />
+        </Center>
       </PresControls>
       <SocialMediaPanel {...socialMediaPanelParameters} />
     </>

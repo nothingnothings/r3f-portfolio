@@ -3,11 +3,14 @@ import { subscribeWithSelector } from 'zustand/middleware';
 
 export default create(
   subscribeWithSelector((set) => ({
+    roomPage: 'notebook',
     isNewVisit: true,
+    infoPagesVisited: false,
     isOpen: false,
     loadedPage: 'linkedIn',
     isPoweredOn: false,
     isFinishedBooting: false,
+    switchRoomPage: (page) => set({ roomPage: page }),
     changeVisitStatus: () => {
       set((state) => {
         if (state.isNewVisit) {
@@ -54,7 +57,6 @@ export default create(
         }
       });
     },
-
     finishBooting: () => {
       set((state) => {
         if (state.isFinishedBooting) {
@@ -70,6 +72,14 @@ export default create(
           return {};
         } else {
           return { loadedPage: page };
+        }
+      }),
+    accessInfoPages: () =>
+      set((state) => {
+        if (state.infoPagesVisited) {
+          return {};
+        } else {
+          return { infoPagesVisited: true };
         }
       }),
     // * UNUSED STATE (for the moment)

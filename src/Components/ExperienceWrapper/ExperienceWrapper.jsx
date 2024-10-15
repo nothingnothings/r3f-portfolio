@@ -7,15 +7,35 @@ import { Leva } from 'leva';
 // * COMPONENTS
 import Experience from '../../Experience';
 import { interpolateFunc, backgroundSetter } from '../../Utils/utils';
+import useNotebook from '../../store/useNotebook';
+import PageButtonsHub from '../UI/Buttons/PageButtonsHub';
 
 const ExperienceWrapper = () => {
+  const isOpen = useNotebook((state) => state.isOpen);
+  const isPoweredOn = useNotebook((state) => state.isPoweredOn);
+  const isFinishedBooting = useNotebook((state) => state.isFinishedBooting);
+
+  const roomPage = useNotebook((state) => state.roomPage);
+  const switchRoomPage = useNotebook((state) => state.switchRoomPage);
+  const accessInfoPages = useNotebook((state) => state.accessInfoPages);
+
+  // * PAGEBUTTONSHUB PARAMETERS
+  const pageButtonsHubProps = {
+    isOpen,
+    isPoweredOn,
+    isFinishedBooting,
+    roomPage,
+    switchRoomPage,
+    accessInfoPages,
+  };
+
   useEffect(() => {
     backgroundSetter();
   }, []);
 
   return (
     <>
-      <Leva collapsed hidden />
+      <Leva collapsed hidden/>
       <Canvas
         camera={{
           fov: 60,
@@ -34,6 +54,8 @@ const ExperienceWrapper = () => {
           position={[0, -0.9, 0]}
         />
       </Canvas>
+
+      <PageButtonsHub {...pageButtonsHubProps} />
     </>
   );
 };
