@@ -66,7 +66,7 @@ Some of the languages and libraries that were used:
 - ReactJS (JavaScript library/framework, app composed entirely of React components)
 - ThreeJS (for creating the canvas element where the whole experience is rendered)
 - React Three Fiber (library that wraps the ThreeJS library and assists with its integration with the React library)
-- Local state management (two main states: first the central one, maanged by the `zustand` library, in `store/useNotebook.jsx`, used all over the app, then a collection of local states, created via the `useState` hook and present in components like &lt;Room&gt;, &lt;AboutMe&gt;, &lt;Skills&gt; and &lt;PageButtonsHub&gt;)
+- State management (two main states: first the central one, maanged by the `zustand` library, in `store/useNotebook.jsx`, used all over the app, then a collection of local states, created via the `useState` hook and present in components like &lt;Room&gt;, &lt;AboutMe&gt;, &lt;Skills&gt; and &lt;PageButtonsHub&gt;)
 - Leva (Powerful GUI component that was used to tweak positioning, scale and rotation of 3D elements, along with other things)
 - React Wordcloud (responsible for generating the Word Cloud background component)
 - Gsap (library responsible for animating many 2D and 3D component's css properties)
