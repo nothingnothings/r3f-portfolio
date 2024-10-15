@@ -288,3 +288,14 @@ Para utilizar este projeto, clone-o usando o Git:
 - Utilização de recursos essenciais da biblioteca ReactJS, como os hooks `useState()` e `useEffect()`.
 - Uso da biblioteca Zustand para gerenciamento do estado global da aplicação.
 - Animações gerenciadas pela biblioteca Gsap, incluindo troca de páginas, abertura e fechamento do notebook, o ligar e o desligar, etc.
+
+## Licença
+
+Este projeto está licenciado sob a Licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
+
+
+
+
+
+
+
