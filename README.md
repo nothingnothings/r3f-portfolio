@@ -35,8 +35,7 @@ animations of the notebook and room's pages were made possible by the Gsap libra
 Also worthy of note is the `react-three/drei` library, developed by the open source developer collective 
 Pmndrs, which sped up the development of the project considerably, thanks to its extremely useful helpers (components like &lt;Center&gt;, &lt;Environment&gt;, &lt;Billboard&gt; and &lt;Html&gt;, among many others).
 
-Due to several issues that needed to be ironed out, the project took quite some time to finish. To ensure a working design in most devices, many techniques were used (such as the usage and management of the &lt;Bounds&gt;
- Drei component).
+Due to several issues that needed to be ironed out, the project took quite some time to finish. To ensure a working design in most devices, many techniques were used (such as the usage and management of the &lt;Bounds&gt; Drei component).
 
 Another challenge was the interaction of the React Three Fiber library with other libraries (like `react-wordcloud`), which led to performance issues. These were addressed through extensive tweaking and debugging with the Leva component, ultimately resolving the problems.
 
@@ -68,6 +67,7 @@ Some of the languages and libraries that were used:
 - Gsap (library responsible for animating many 2D and 3D component's css properties)
 - Bootstrap (used for the responsive layout of the &lt;AboutMe&gt; and &lt;Skills&gt; Pages)
 - FontAwesome (for the icons of the &lt;SocialMediaPanel&gt;)
+- Vite (for the bundling of the app)
 - Netlify (for the deployment of the app)
 
 
@@ -177,6 +177,117 @@ The development environment:
 │       └── utils.jsx
 └── vite.config.js
 
+
+
 ```
 
 
+## Project Configuration Files (package.json and vite.config.js)
+
+
+The `package.json` file used in the project:
+
+
+
+```
+
+{
+  "name": "panazolo-portfolio",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.11",
+    "@types/react-dom": "^18.3.0",
+    "@vitejs/plugin-react": "4.1",
+    "typescript": "^5.6.2",
+    "vite": "^4.5.0",
+    "vite-plugin-node-polyfills": "^0.22.0"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.6.0",
+    "@fortawesome/free-brands-svg-icons": "^6.6.0",
+    "@fortawesome/free-solid-svg-icons": "^6.6.0",
+    "@fortawesome/react-fontawesome": "^0.2.2",
+    "@react-three/drei": "^9.88.7",
+    "@react-three/fiber": "^8.15.8",
+    "bootstrap": "^5.3.3",
+    "gsap": "^3.12.5",
+    "leva": "^0.8.0",
+    "react": "18.2",
+    "react-dom": "18.2",
+    "react-favicon": "^2.0.7",
+    "react-lazy-no-flicker": "^2.1.0",
+    "react-wordcloud": "^1.2.7",
+    "three": "^0.163.0",
+    "zustand": "^4.5.4"
+  }
+}
+
+
+```
+
+
+The vite.config.js file used in the project:
+
+
+
+
+```
+
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
+import { nodePolyfills } from 'vite-plugin-node-polyfills';
+
+export default defineConfig({
+  root: 'src/',
+  publicDir: '../public/',
+  base: '/',
+  plugins: [
+    react(), // React support
+    nodePolyfills(), // Fix Crypto warnings
+  ],
+  server: {
+    host: true, // Open to local network and display URL
+    open: !('SANDBOX_URL' in process.env || 'CODESANDBOX_HOST' in process.env), // Open if it's not a CodeSandbox
+  },
+  build: {
+    outDir: '../dist', // Output in the dist/ folder
+    emptyOutDir: true, // Empty the folder first
+    sourcemap: true, // Add sourcemap
+  },
+});
+
+```
+
+
+
+
+## Installation/Usage
+
+
+To use this project, clone it using Git:
+
+1. Run `git clone` to clone the project into your local Git repository.
+2. Run `npm install --legacy-peer-deps` to install all dependencies (`react`, `three`, `react-three/fiber`, `react-three/drei`, `gsap`, etc.).
+3. Run `npm run build` to create the production/deployment version of the application (outputted in the `/build` directory).
+4. Serve the production/deployment files locally or on the web (with the help of a hosting service).
+5. Open and power on the notebook model
+6. View different pages in the notebook by using the social icons below the notebook
+7. View the "About" and "Skills" pages by pressing the buttons to the left of the notebook.
+
+
+## Features
+
+- Single-page application with no page reloads, using a single HTML file (ReactJS).
+- App powered by ThreeJS and React Three fiber, for an interactive 3D user experience.
+- Application divided into various components, some of which are reused across multiple places (design philosophy of the ReactJS library).
+- Custom CSS design.
+- Responsive design (adaptive, supporting mobile and desktop devices) created with Bootstrap, Flexbox, media queries and the &lt;Bounds&gt; Drei component)
+- Utilization of core features of the ReactJS library, such as the hooks `useState()` and `useEffect()`.
+- Usage of Zustand library for managing the application's global state
+- Leveraging of the Gsap library, for the handling of the page switch animations, notebook opening and closing, powering on and off, etc.
