@@ -296,3 +296,7 @@ To use this project, clone it using Git:
 - Utilization of core features of the ReactJS library, such as the hooks `useState()` and `useEffect()`.
 - Usage of the Zustand library for managing the application's global state
 - Leveraging of the Gsap library, for the handling of the page switch animations, notebook opening and closing, powering on and off, etc.
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](#) file for more details.
