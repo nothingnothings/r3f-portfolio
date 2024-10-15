@@ -21,15 +21,20 @@
 
 ![Portfolio1](screenshots/panazolo-portfolio.png)
 ![Portfolio2](screenshots/panazolo-portfolio2.png)
+![Portfolio3](screenshots/panazolo-portfolio3.png)
+![Portfolio4](screenshots/panazolo-portfolio4.png)
+![Portfolio5](screenshots/panazolo-portfolio5.png)
+![Portfolio6](screenshots/panazolo-portfolio6.png)
 
 
 
-After postponing it for so long, finally made up my mind and decided to create my personal portfolio. This Single Page Application serves as a showcase of my skills, projects, and experiences in web development. 
+
+After postponing it for so long, finally made up my mind and decided to create my personal portfolio. This Single Page Application serves as a showcase of my skills and experience in web development. 
 With a modern design and interactive elements, I aimed to reflect my passion for coding and creativity, while maintaining a simple and elegant appearance.
 
 Leveraging technologies like React, ThreeJS and React Three Fiber, I focused on delivering a smooth interactive 3D experience, along with responsiveness for various devices. 
 
-React's `useState()` hook and the Zustand library were used to manage the many states of the app (the Notebook's open/close and on/off states; also the management of the other pages, "About" and "Skills"), and the 
+React's `useState()` hook and the Zustand library were used to manage the many states of the app (the notebook's open/close and on/off states; also the management of the other pages, "About" and "Skills"), and the 
 animations of the notebook and room's pages were made possible by the Gsap library and React Three Fiber's `useFrame()` hook. 
 
 Also worthy of note is the `react-three/drei` library, developed by the open source developer collective 
@@ -37,9 +42,9 @@ Pmndrs, which sped up the development of the project considerably, thanks to its
 
 Due to several issues that needed to be ironed out, the project took quite some time to finish. To ensure a working design in most devices, many techniques were used (such as the usage and management of the &lt;Bounds&gt; Drei component).
 
-Another challenge was the interaction of the React Three Fiber library with other libraries (like `react-wordcloud`), which led to performance issues. These were addressed through extensive tweaking and debugging with the Leva component, ultimately resolving the problems.
+Another challenge was the interaction of the React Three Fiber library with other libraries (like `react-wordcloud`), which led to performance issues. These were addressed through extensive tweaking and debugging, with the help of the Leva GUI component.
 
-The interactive background component, composed of many words in a single block, was made possible by the `react-wordcloud` library, which randomizes each word's positions before joining them all together.
+The interactive background component, composed of many words in a single block, was made possible by the `react-wordcloud` library, which randomizes each word's position, before joining them all together.
 The end goal was to generate something like <a href="https://github.com/nothingnothings/r3f-portfolio/blob/master/wordcloud.jpg" target="_blank" rel="noreferrer noopener">this</a>.
 
 The app was deployed with the help of Netlify, and can be accessed <a href="https://arthur-panazolo.netlify.app/" target="_blank" rel="noreferrer noopener">here</a>.
@@ -289,5 +294,5 @@ To use this project, clone it using Git:
 - Custom CSS design.
 - Responsive design (adaptive, supporting mobile and desktop devices) created with Bootstrap, Flexbox, media queries and the &lt;Bounds&gt; Drei component)
 - Utilization of core features of the ReactJS library, such as the hooks `useState()` and `useEffect()`.
-- Usage of Zustand library for managing the application's global state
+- Usage of the Zustand library for managing the application's global state
 - Leveraging of the Gsap library, for the handling of the page switch animations, notebook opening and closing, powering on and off, etc.
