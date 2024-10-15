@@ -73,3 +73,110 @@ Some of the languages and libraries that were used:
 
 ## Project Directory Structure
 
+The development environment:
+
+```
+
+.
+├── package.json
+├── package-lock.json
+├── public
+│   ├── fontawesome
+│   │   ├── css
+│   │   │   ├── all.css
+│   │   │   ├── all.min.css
+│   │   │   ├── brands.css
+│   │   │   ├── brands.min.css
+│   │   │   ├── fontawesome.css
+│   │   │   ├── fontawesome.min.css
+│   │   │   ├── regular.css
+│   │   │   ├── regular.min.css
+│   │   │   ├── solid.css
+│   │   │   ├── solid.min.css
+│   │   │   ├── svg-with-js.css
+│   │   │   ├── svg-with-js.min.css
+│   │   │   ├── v4-font-face.css
+│   │   │   ├── v4-font-face.min.css
+│   │   │   ├── v4-shims.css
+│   │   │   ├── v4-shims.min.css
+│   │   │   ├── v5-font-face.css
+│   │   │   └── v5-font-face.min.css
+│   │   └── webfonts
+│   │       ├── fa-brands-400.ttf
+│   │       ├── fa-brands-400.woff2
+│   │       ├── fa-regular-400.ttf
+│   │       ├── fa-regular-400.woff2
+│   │       ├── fa-solid-900.ttf
+│   │       ├── fa-solid-900.woff2
+│   │       ├── fa-v4compatibility.ttf
+│   │       └── fa-v4compatibility.woff2
+│   ├── fonts
+│   │   └── titillium-web-v17-latin-regular.woff
+│   ├── images
+│   │   ├── arthur-panazolo.jpeg
+│   │   ├── boot_sequence.gif
+│   │   ├── distribution_board_1k.jpg
+│   │   ├── linkedin-printscreen.png
+│   │   └── mesh-190.png
+│   ├── models
+│   │   └── lenovo-notebook.glb
+│   └── sounds
+│       ├── beep.wav
+│       └── fan.mp3
+├── screenshots
+│   └── panazolo-portfolio.png
+├── src
+│   ├── Components
+│   │   ├── Controls
+│   │   │   └── PresControls.jsx
+│   │   ├── Environment
+│   │   │   └── Env.jsx
+│   │   ├── ExperienceWrapper
+│   │   │   └── ExperienceWrapper.jsx
+│   │   ├── FaviconHelper
+│   │   │   └── FaviconHelper.jsx
+│   │   ├── Lights
+│   │   │   └── RectLight.jsx
+│   │   ├── LoadingScreen
+│   │   │   └── LoadingScreen.jsx
+│   │   ├── Notebook
+│   │   │   ├── LenovoBook.jsx
+│   │   │   └── Screens
+│   │   │       └── Screens.jsx
+│   │   ├── Room.jsx
+│   │   ├── UI
+│   │   │   ├── Buttons
+│   │   │   │   ├── HingeButtons.jsx
+│   │   │   │   ├── PageButtonsHub.jsx
+│   │   │   │   ├── PageMoveButton.jsx
+│   │   │   │   └── PowerButtons.jsx
+│   │   │   ├── Captions
+│   │   │   │   └── Captions.jsx
+│   │   │   ├── FauxPages
+│   │   │   │   └── Pages
+│   │   │   │       ├── AboutMe.tsx
+│   │   │   │       └── Skills.tsx
+│   │   │   └── SocialMediaPanel
+│   │   │       └── SocialMediaPanel.jsx
+│   │   └── WordCloud
+│   │       ├── fonts.css
+│   │       ├── parameters
+│   │       │   ├── options.jsx
+│   │       │   └── words.jsx
+│   │       └── WordCloud.jsx
+│   ├── Experience.jsx
+│   ├── fontawesome.min.css
+│   ├── hooks
+│   │   └── useFloat.jsx
+│   ├── index.html
+│   ├── index.jsx
+│   ├── store
+│   │   └── useNotebook.jsx
+│   ├── style.css
+│   └── Utils
+│       └── utils.jsx
+└── vite.config.js
+
+```
+
+
