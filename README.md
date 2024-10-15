@@ -33,9 +33,9 @@ React's `useState()` hook and the Zustand library were used to manage the many s
 animations of the notebook and room's pages were made possible by the Gsap library and React Three Fiber's `useFrame()` hook. 
 
 Also worthy of note is the `react-three/drei` library, developed by the open source developer collective 
-Pmndrs, which sped up the development of the project considerably, thanks to its extremely useful helpers (components like <Center>, <Environment>, <Billboard> and <Html>, among many others).
+Pmndrs, which sped up the development of the project considerably, thanks to its extremely useful helpers (components like "<Center>", "<Environment>", <Billboard> and "<Html>", among many others).
 
-Due to several issues that needed to be ironed out, the project took quite some time to finish. To ensure a working design in most devices, many techniques were used (such as the usage and management of the <Bounds> Drei component).
+Due to several issues that needed to be ironed out, the project took quite some time to finish. To ensure a working design in most devices, many techniques were used (such as the usage and management of the "<Bounds>" Drei component).
 
 Another challenge was the interaction of the React Three Fiber library with other libraries (like `react-wordcloud`), which led to performance issues. These were addressed through extensive tweaking and debugging with the Leva component, ultimately resolving the problems.
 
@@ -61,12 +61,12 @@ Some of the languages and libraries that were used:
 - ReactJS (JavaScript library/framework, app composed entirely of React components)
 - ThreeJS (for creating the canvas element where the whole experience is rendered)
 - React Three Fiber (library that wraps the ThreeJS library and assists with its integration with the React library)
-- Local state management (two main states: first the central one, maanged by the `zustand` library, in `store/useNotebook.jsx`, used all over the app, then a collection of local states, created via the `useState` hook and present in components like <Room>, <AboutMe>, <Skills> and <PageButtonsHub>)
+- Local state management (two main states: first the central one, maanged by the `zustand` library, in `store/useNotebook.jsx`, used all over the app, then a collection of local states, created via the `useState` hook and present in components like "<Room>", "<AboutMe>", "<Skills>" and "<PageButtonsHub>")
 - Leva (Powerful GUI component that was used to tweak positioning, scale and rotation of 3D elements, along with other things)
 - React Wordcloud (responsible for generating the Word Cloud background component)
 - Gsap (library responsible for animating many 2D and 3D component's css properties)
-- Bootstrap (used for the responsive layout of the <AboutMe> and <Skills> Pages)
-- FontAwesome (for the icons of the <SocialMediaPanel>)
+- Bootstrap (used for the responsive layout of the "<AboutMe>" and "<Skills>" Pages)
+- FontAwesome (for the icons of the "<SocialMediaPanel>")
 - Netlify (for the deployment of the app)
 
 
